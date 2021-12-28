@@ -6,13 +6,13 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 04:24:13 by tglory            #+#    #+#             */
-/*   Updated: 2021/12/28 04:54:08 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/12/28 05:00:20 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	int		i;
 	int		j;
@@ -26,12 +26,13 @@ int main(int argc, char *argv[])
 	while (argv[i])
 	{
 		j = 0;
+
 		while (argv[i][j])
 		{
-			//if (argv[i][j] != ' ' || (j > 0 && argv[i][j] == ' ' && argv[i][j - 1] != ' '))
-			std::cout << (char)toupper(argv[i][j]);
+			argv[i][j] = std::toupper(argv[i][j]);
 			j++;
 		}
+		std::cout << argv[i];
 		if (argv[i + 1])
 			std::cout << " ";
 		else
