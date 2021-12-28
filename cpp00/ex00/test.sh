@@ -1,15 +1,18 @@
 #!/bin/bash
+#################################### SETTINGS ####################################
 MODULE="cpp00"
 PROG="ex00"
 CORRECT=true
 CORRECT_RETURN=true
 
+#################################### COMPILE ####################################
 make > /dev/null
 
 echo "---------------------------------------------------"
 echo "Test $MODULE/$PROG"
 echo
 
+##################################### TESTS #####################################
 ./$PROG "shhhhh... I think the students are asleep..." > test1_user
 if [ $? != 0 ]; then
 	CORRECT_RETURN=false
@@ -40,6 +43,7 @@ if [ $? != 0 ]; then
 	CORRECT=false
 fi
 
+#################################### RESULTS ####################################
 rm -f test1_correct test1_user
 echo
 if [ $CORRECT_RETURN != "true" ]; then
@@ -51,3 +55,11 @@ else
 	echo -e "\e[0;32mOK\e[0m"
 fi
 echo "---------------------------------------------------"
+
+################################## RETURN CODE ##################################
+
+if [ $CORRECT_RETURN != "true" ] || [ $CORRECT != "true" ]; then
+	exit 1
+else
+	exit 0
+fi
