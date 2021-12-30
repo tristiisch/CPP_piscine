@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 05:33:22 by tglory            #+#    #+#             */
-/*   Updated: 2021/12/28 05:41:43 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2021/12/30 01:03:01 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int main(void)
 {
-	std::string input;
+	PhoneBook phonebook;
+	Command *command;
 
-	std::cout << "ADD, SEARCH or EXIT" << std::endl;
-	std::cin >> input;
-	std::cout << "Choosing '" << input << "' ..." << std::endl;
-	 
+	command = phonebook.askCommand();
+	if (!command)
+		return (0);
+	command->execute();
 	return (0);
 }

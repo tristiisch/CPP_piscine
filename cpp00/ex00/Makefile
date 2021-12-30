@@ -6,6 +6,8 @@ CFLAGS			=	-Wall -Wextra -Werror
 
 OBJS			=	$(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
+all: $(NAME)
+
 $(OBJS_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@) && $(CC) -c $(CFLAGS) -o $@ $< 
 

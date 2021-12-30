@@ -1,17 +1,22 @@
 CC				=	clang++
 NAME			=	ex01
-SRCS			=	$(wildcard *.cpp)
-INCLUDES		=	$(wildcard *.h) $(wildcard *.hpp)
+SRCS_DIR		=	srcs
+INCLUDES_DIR	=	includes
 OBJS_DIR		=	objs
+SRCS			=	$(wildcard $(SRCS_DIR)/*.cpp)
+INCLUDES		=	$(wildcard $(INCLUDES_DIR)/*.h) $(wildcard $(INCLUDES_DIR)/*.hpp)
+HEADER			=	$(addprefix -I, $(INCLUDES_DIR))
 #CFLAGS			=	-Wall -Wextra #-Werror
 
-OBJS			=	$(SRCS:%.cpp=$(OBJS_DIR)/%.o)
+OBJS			=	$(SRCS:$(SRCS_DIR)/%.cpp=$(OBJS_DIR)/%.o)
 
-$(OBJS_DIR)/%.o: %.cpp $(INCLUDES)
-	mkdir -p $(dir $@) && $(CC) -c $(CFLAGS) -o $@ $< 
+all: $(NAME)
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp $(INCLUDES)
+	mkdir -p $(dir $@) && $(CC) -c $(HEADER) $(CFLAGS) -o $@ $< 
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJS) $(HEADER) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
