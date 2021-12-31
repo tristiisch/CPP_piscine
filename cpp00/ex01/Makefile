@@ -1,31 +1,25 @@
 CC				=	clang++
-NAME			=	ex01
-SRCS_DIR		=	srcs
-INCLUDES_DIR	=	includes
-OBJS_DIR		=	objs
-SRCS			=	$(wildcard $(SRCS_DIR)/*.cpp)
-INCLUDES		=	$(wildcard $(INCLUDES_DIR)/*.h) $(wildcard $(INCLUDES_DIR)/*.hpp)
-HEADER			=	$(addprefix -I, $(INCLUDES_DIR))
-#CFLAGS			=	-Wall -Wextra #-Werror
+FLAGS			=	-Wall -Wextra -Werror
+NAME			=	phonebook
+INCLUDES		=	Contact.h
+SRC				=	main.cpp Contact.cpp
 
-OBJS			=	$(SRCS:$(SRCS_DIR)/%.cpp=$(OBJS_DIR)/%.o)
+OBJ				=	$(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp $(INCLUDES)
-	mkdir -p $(dir $@) && $(CC) -c $(HEADER) $(CFLAGS) -o $@ $< 
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) -o $@ $^
 
-$(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(HEADER) -o $(NAME)
+%.o : %.cpp $(INCLUDES)
+	$(CC) $(FLAGS) -c -o $@ $<
 
-clean:
-	rm -f $(OBJS)
+clean :
+	rm -f $(OBJ)
 
-fclean: clean
-	rm -rf $(OBJS_DIR) $(NAME)
+fclean : clean
+	rm -f $(NAME)
 
-re:
-	make fclean
-	make all
+re: fclean all
 
 .PHONY: all clean fclean re
