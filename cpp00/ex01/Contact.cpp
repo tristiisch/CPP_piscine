@@ -22,20 +22,30 @@ Contact::~Contact(void)
 	return;
 }
 
-void Contact::askContact(void)
+bool Contact::askContact(void)
 {
 	std::cout << "\e[1;35mWhat is the <first name> ?\e[0m ";
-	std::getline (std::cin, this->first_name);
+	std::cin >> this->first_name;
+	if (!this->first_name.compare(""))
+		return (false);
 	std::cout << "\e[1;35mWhat is the <last name> ?\e[0m ";
 	std::getline (std::cin, this->last_name);
+	if (!this->last_name.compare(""))
+		return (false);
 	std::cout << "\e[1;35mWhat is the <nickname> ?\e[0m ";
-	std::getline (std::cin, this->nickname);
+	std::cin >> this->nickname;
+	if (!this->nickname.compare(""))
+		return (false);
 	std::cout << "\e[1;35mWhat is the <phone number> ?\e[0m ";
-	std::getline (std::cin, this->phone);
+	std::cin >> this->phone;
+	if (!this->phone.compare(""))
+		return (false);
 	std::cout << "\e[1;35mWhat is the <darkest secret> ?\e[0m ";
-	std::getline (std::cin, this->secret);
+	std::cin >> this->secret;
+	if (!this->secret.compare(""))
+		return (false);
 	std::cout << "\e[0;32m" + this->first_name + " " + this->last_name + " has been added to PhoneBook\e[0m" << std::endl;
-	return;
+	return (true);
 }
 
 void Contact::displayContact(int index) const

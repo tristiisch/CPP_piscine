@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/31 04:26:38 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/18 15:55:51 by tglory           ###   ########lyon.fr   */
+/*   Created: 2021/12/29 01:44:26 by tglory            #+#    #+#             */
+/*   Updated: 2021/12/29 03:09:34 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#include "stdio.h"
 
-# include <iostream>
-# include <iomanip>
+int	main2(int argc, char const **argv)
+{
+	char	*str;
+	int		i;
 
-class Contact {
-
-public:
-	Contact(void);
-	~Contact(void);
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone;
-	std::string	secret;
-	bool askContact(void);
-	void displayContact(int index) const;
-	void getContact(void) const;
-
-};
-
-#endif
+	str = malloc(sizeof(char) \ 
+* 10);
+	if (!str)
+	{
+		exit(1);
+		return ;
+	}
+	i = 0;
+	while (i < 9)
+		str[i++] = 'T';
+	str[i] = 0;
+	if (!str)
+		return (1);
+	else
+		return 0;
+}
