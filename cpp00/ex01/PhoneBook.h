@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.h                                          :+:      :+:    :+:   */
+/*   PhoneBook.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 04:26:38 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/20 17:40:25 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/20 17:59:39 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
 # include <iostream>
-# include <iomanip>
+# include "Contact.h"
 
-class Contact {
+class PhoneBook {
 
 public:
-	Contact(void);
-	~Contact(void);
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	phone;
-	std::string	secret;
-	bool askContact(void);
-	void displayContact(int index) const;
-	void getContact(void) const;
-
+	PhoneBook(void);
+	~PhoneBook(void);
+	Contact contacts[8];
+	int nb;
+	void start();
+	void help();
+	void showContacts();
+	bool add();
+	bool search();
 };
 
 #endif
