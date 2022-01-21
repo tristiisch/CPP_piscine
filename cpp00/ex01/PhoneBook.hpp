@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/31 04:26:32 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/21 18:01:15 by tglory           ###   ########lyon.fr   */
+/*   Created: 2021/12/31 04:26:38 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/21 18:00:59 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-int	main(void)
-{
-	PhoneBook phoneBook;
+# include "Contact.hpp"
 
-	phoneBook.start();
-	return (0);
-}
+class PhoneBook {
+
+public:
+	PhoneBook(void);
+	~PhoneBook(void);
+	Contact contacts[8];
+	int nb;
+	void start();
+	void help();
+	void showContacts();
+	bool add();
+	bool search();
+};
+
+#endif

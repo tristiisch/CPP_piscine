@@ -1,8 +1,8 @@
 CC				=	clang++
 FLAGS			=	-Wall -Wextra -Werror
-NAME			=	phonebook
-INCLUDES		=	Contact.hpp PhoneBook.hpp
-SRC				=	main.cpp Contact.cpp PhoneBook.cpp
+NAME			=	ex00
+INCLUDES		=	Zombie.hpp
+SRC				=	Zombie.cpp
 
 OBJ				=	$(SRC:%.cpp=%.o)
 

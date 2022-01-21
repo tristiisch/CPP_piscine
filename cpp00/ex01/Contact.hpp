@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/31 04:26:32 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/21 18:01:15 by tglory           ###   ########lyon.fr   */
+/*   Created: 2021/12/31 04:26:38 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/21 18:00:50 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-int	main(void)
-{
-	PhoneBook phoneBook;
+# include <iostream>
+# include <iomanip>
 
-	phoneBook.start();
-	return (0);
-}
+class Contact {
+
+public:
+	Contact(void);
+	~Contact(void);
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone;
+	std::string	secret;
+	bool askContact(void);
+	void displayContact(int index) const;
+	void getContact(void) const;
+
+};
+
+#endif

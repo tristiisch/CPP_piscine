@@ -6,11 +6,11 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:37:43 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/20 17:38:42 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/21 18:01:33 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.h"
+#include "Contact.hpp"
 
 Contact::Contact(void) { return; }
 
