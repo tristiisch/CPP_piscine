@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:36:15 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/20 18:01:06 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/21 16:54:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ bool	PhoneBook::search()
 	{
 		this->showContacts();
 		do {
-			std::cout << "Choose an <index> > ";
+			std::cout << "Choose an <index> : ";
 			if (!(std::cin >> index_selected))
 				return (false);
 		} while (index_selected.find_first_not_of("12345678") != std::string::npos ||
