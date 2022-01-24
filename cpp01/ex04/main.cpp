@@ -6,44 +6,33 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:59:01 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/24 19:47:19 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/24 22:03:50 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
-# include <string>
-# include <filesystem>
 # include <fstream>
+# include <sstream>
 
 /**
- * @brief Remplace ligne par ligne depuis le fichier src dans dest les occurrance de s1 par s2
+ * @brief Copy src into dest with replace all occurrence of s1 by s2
  */
-std::string ft_replace(std::ifstream &src, std::ofstream &dest, std::string s1, std::string s2)
+void ft_replace(std::ifstream &src, std::ofstream &dest, std::string s1, std::string s2)
 {
-	std::string str;
 	size_t indexOccurrence;
-	bool isFirstLine = true;
+	std::string str;
+	std::ostringstream fileContentStream;
 
-	while (std::getline(src, str))
-	{
-		if (!isFirstLine)
-			dest << std::endl;
-		else
-			isFirstLine = false;
-		do {
-			indexOccurrence = str.find(s1);
-			if (indexOccurrence == std::string::npos)
-				break ;
-			str.erase(indexOccurrence, s1.length());
-			str.insert(indexOccurrence, s2);
-		} while (true);
-		dest << str;
-	}
-	if (src.eof())
-         std::cout << "EOF '" << src.peek() <<"'\n";
-	if (!src.bad() && src.eof())
-		dest << std::endl;
-	return (str);
+	fileContentStream << src.rdbuf();
+	str = fileContentStream.str();
+	do {
+		indexOccurrence = str.find(s1);
+		if (indexOccurrence == std::string::npos)
+			break ;
+		str.erase(indexOccurrence, s1.length());
+		str.insert(indexOccurrence, s2);
+	} while (true);
+	dest << str;
 }
 
 int ft_check_args(int argc, char const *argv[])

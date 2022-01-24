@@ -9,7 +9,7 @@ Il y un espace à la fin de cette ligne
 La ligne suivant est remplis d'espace
                                      
 celle d'après contient uniquement des tabs
-
+											
 abcdefghijklmonpqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 
