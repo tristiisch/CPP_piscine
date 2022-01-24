@@ -12,7 +12,7 @@ $(OBJS_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@) && $(CC) -c $(CFLAGS) -o $@ $< 
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)

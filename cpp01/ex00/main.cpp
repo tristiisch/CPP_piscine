@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 18:00:16 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/24 01:44:46 by tglory           ###   ########lyon.fr   */
+/*   Created: 2022/01/24 01:38:07 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/24 01:55:43 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+# include "Zombie.hpp"
+# include "randomChump.cpp"
+# include "newZombie.cpp"
 
-# include <iostream>
-
-class Zombie
+int main(void)
 {
+	Zombie *zombie;
 
-public:
-	~Zombie(void);
-	std::string	name;
-	void announce(void);
-};
-
-#endif
+	zombie = newZombie("Berber");
+	zombie->announce();
+	return 0;
+}

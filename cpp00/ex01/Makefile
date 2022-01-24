@@ -4,18 +4,18 @@ NAME			=	phonebook
 INCLUDES		=	Contact.hpp PhoneBook.hpp
 SRC				=	main.cpp Contact.cpp PhoneBook.cpp
 
-OBJ				=	$(SRC:%.cpp=%.o)
+OBJS			=	$(SRC:%.cpp=%.o)
 
 all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) -o $@ $^
 
 %.o : %.cpp $(INCLUDES)
 	$(CC) $(FLAGS) -c -o $@ $<
 
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean : clean
 	rm -f $(NAME)

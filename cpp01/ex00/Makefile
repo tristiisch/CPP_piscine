@@ -2,20 +2,21 @@ CC				=	clang++
 FLAGS			=	-Wall -Wextra -Werror
 NAME			=	ex00
 INCLUDES		=	Zombie.hpp
-SRC				=	Zombie.cpp
+SRCS			=	Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
 
-OBJ				=	$(SRC:%.cpp=%.o)
+OBJS_DIR		=	objs
+OBJS			=	$(SRCS:$(SRCS_DIR)/%.cpp=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) -o $@ $^
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp $(INCLUDES)
+	mkdir -p $(dir $@) && $(CC) $(FLAGS) -c -o $@ $<
 
-%.o : %.cpp $(INCLUDES)
-	$(CC) $(FLAGS) -c -o $@ $<
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean : clean
 	rm -f $(NAME)
