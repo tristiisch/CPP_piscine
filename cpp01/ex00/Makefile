@@ -1,25 +1,25 @@
 CC				=	clang++
-FLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror
 NAME			=	ex00
 INCLUDES		=	Zombie.hpp
 SRCS			=	Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
 
 OBJS_DIR		=	objs
-OBJS			=	$(SRCS:$(SRCS_DIR)/%.cpp=$(OBJS_DIR)/%.o)
+OBJS			=	$(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp $(INCLUDES)
-	mkdir -p $(dir $@) && $(CC) $(FLAGS) -c -o $@ $<
+$(OBJS_DIR)/%.o: %.cpp $(INCLUDES)
+	mkdir -p $(dir $@) && $(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 	rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	rm -rf $(NAME) $(OBJS_DIR)
 
 re: fclean all
 

@@ -6,12 +6,11 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 01:35:43 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/24 01:55:42 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/24 02:53:25 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-# include "newZombie.cpp"
+# include "Zombie.hpp"
 
 void randomChump(std::string name)
 {

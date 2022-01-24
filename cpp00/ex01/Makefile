@@ -1,24 +1,25 @@
 CC				=	clang++
-FLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror
 NAME			=	phonebook
 INCLUDES		=	Contact.hpp PhoneBook.hpp
-SRC				=	main.cpp Contact.cpp PhoneBook.cpp
+SRCS			=	main.cpp Contact.cpp PhoneBook.cpp
 
-OBJS			=	$(SRC:%.cpp=%.o)
+OBJS_DIR		=	objs
+OBJS			=	$(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
 
-%.o : %.cpp $(INCLUDES)
-	$(CC) $(FLAGS) -c -o $@ $<
+$(OBJS_DIR)/%.o: %.cpp $(INCLUDES)
+	mkdir -p $(dir $@) && $(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean :
 	rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	rm -rf $(NAME) $(OBJS_DIR)
 
 re: fclean all
 

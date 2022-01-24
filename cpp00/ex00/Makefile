@@ -20,8 +20,6 @@ clean:
 fclean: clean
 	rm -rf $(OBJS_DIR) $(NAME)
 
-re:
-	make fclean
-	make all
+re: fclean all
 
 .PHONY: all clean fclean re
