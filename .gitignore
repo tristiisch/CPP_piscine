@@ -1,4 +1,5 @@
 .vscode/
+objs
 *.o
 cpp*/ex*/ex*
 cpp00/ex01/phonebook
