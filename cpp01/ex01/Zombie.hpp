@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 03:17:41 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/24 03:34:41 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/24 03:41:45 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ class Zombie
 		void setName(std::string name);
 };
 
-// Zombie*	newZombie(std::string name);
-// void	randomChump(std::string name);
 Zombie* zombieHorde(int N, std::string name);
-
 
 #endif
