@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 22:07:51 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/25 01:15:33 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 19:37:54 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ class Karen
 		void warning(void);
 		void error(void);
 };
-
 
 #endif

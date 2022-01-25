@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 18:00:16 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/24 02:47:45 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 17:30:45 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 
 class Zombie
 {
-	private:
-		std::string	name;
 	public:
+		Zombie(std::string name);
 		~Zombie(void);
 		void announce(void);
-		void setName(std::string name);
+	private:
+		std::string	name;
 };
 
-Zombie*	newZombie(std::string name);
+Zombie	*newZombie(std::string name);
 void	randomChump(std::string name);
 
 #endif

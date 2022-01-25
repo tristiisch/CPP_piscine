@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:15:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/24 15:48:37 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 18:57:21 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Weapon
 
 	private:
 		std::string type;
-
 };
 
 #endif

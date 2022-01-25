@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:59:01 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/24 22:03:50 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 17:07:54 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ int ft_check_args(int argc, char const *argv[])
 {
 	if (argc < 4)
 	{
-		std::cerr << "Usage : <filename> <s1> <s2>." << std::endl;
+		std::cout << "Usage : <filename> <s1> <s2>." << std::endl;
 		return (1);
 	}
 	if (!std::string(argv[2]).size())
 	{
-		std::cerr << "Argument <s1>, the n°2 is empty." << std::endl;
+		std::cout << "Argument <s1>, the n°2 is empty." << std::endl;
 		return (2);
 	}
 	if (!std::string(argv[3]).size())
 	{
-		std::cerr << "Argument <s2>, the n°3 is empty." << std::endl;
+		std::cout << "Argument <s2>, the n°3 is empty." << std::endl;
 		return (3);
 	}
 	return (0);
@@ -73,7 +73,7 @@ int main(int argc, char const *argv[])
 	src.open(fileName.c_str(), std::ios::binary);
 	if (src.fail())
 	{
-		std::cerr << "Can't open file '" << fileName << "'." << std::endl;
+		std::cout << "Can't open file '" << fileName << "'." << std::endl;
 		return (4);
 	}
 	destName = fileName + ".replace";
@@ -81,7 +81,7 @@ int main(int argc, char const *argv[])
 	if (dest.fail())
 	{
 		src.close();
-		std::cerr << "Can't create or open file '" << destName << "'." << std::endl;
+		std::cout << "Can't create or open file '" << destName << "'." << std::endl;
 		return (5);
 	}
 	ft_replace(src, dest, s1, s2);

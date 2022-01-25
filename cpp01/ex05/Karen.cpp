@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 22:11:32 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/25 01:14:47 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 19:40:44 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void Karen::complain(std::string level)
 			break ;
 		}
 	}
-
 }
 
 void Karen::debug(void)

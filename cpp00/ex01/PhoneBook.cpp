@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:36:15 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/21 18:01:25 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/25 19:26:21 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PhoneBook::~PhoneBook(void) {}
 
 void	PhoneBook::start()
 {
-	std::string		command;
+	std::string command;
 
 	std::cout << "- Welcome in PhoneBook" << std::endl;
 	this->help();
@@ -57,18 +57,20 @@ void	PhoneBook::showContacts()
 	std::cout << std::setfill(' ') << std::setw(10) << "last name" << "|";
 	std::cout << std::setfill(' ') << std::setw(10) << "nickname" << "|";
 	std::cout << std::endl;
-	for (int iter = 0; iter < this->nb ; iter++)
-		this->contacts[iter].displayContact(iter + 1);
+	for (int i = 0; i < this->nb ; i++)
+		this->contacts[i].displayContact(i + 1);
 }
 
 bool	PhoneBook::add()
 {
-	if (this->nb >= 0 && this->nb < 8)
+	if (this->nb < 8)
 	{
 		if (this->contacts[this->nb].askContact() == false)
 			return (false);
 		this->nb++;
 	}
+	else if (this->nb < 0)
+		return (false);
 	else
 		std::cout << "\e[31mSorry, you have already used every 8 contacts available. \e[5;92mUpgrade for only 50$/month.\e[0m" << std::endl;
 	return (true);
@@ -76,26 +78,26 @@ bool	PhoneBook::add()
 
 bool	PhoneBook::search()
 {
-	std::string		index_selected;
-	int				index_to_display = 0;
+	std::string indexSelected;
+	int indexDisplay = 0;
 
 	if (this->nb > 0 && this->nb <= 8)
 	{
 		this->showContacts();
 		do {
 			std::cout << "Choose an <index> : ";
-			if (!(std::cin >> index_selected))
+			if (!(std::cin >> indexSelected))
 				return (false);
-		} while (index_selected.find_first_not_of("12345678") != std::string::npos ||
-					index_selected.length() != 1);
-		index_to_display = std::stoi(index_selected);
-		if (index_to_display > this->nb)
+		} while (indexSelected.find_first_not_of("12345678") != std::string::npos ||
+					indexSelected.length() != 1);
+		indexDisplay = std::stoi(indexSelected);
+		if (indexDisplay > this->nb)
 		{
-			std::cout << "\e[0;31mSorry, index " << index_to_display;
+			std::cout << "\e[0;31mSorry, index " << indexDisplay;
 			std::cout << " doesn't exist yet. Create it! Back to menu.\e[0m" << std::endl;
 		}
 		else
-			this->contacts[index_to_display - 1].getContact();
+			this->contacts[indexDisplay - 1].getContact();
 	}
 	else
 		std::cout << "\e[0;31mYour contact list is empty. Use <ADD> command to add one.\e[0m" << std::endl;
