@@ -2,7 +2,7 @@ CC				=	clang++
 NAME			=	ex00
 SRCS			=	megaphone.cpp
 OBJS_DIR		=	objs
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 
 OBJS			=	$(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 

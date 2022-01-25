@@ -1,5 +1,5 @@
 CC				=	clang++
-FLAGS			=	-Wall -Wextra -Werror
+FLAGS			=	-Wall -Wextra -Werror -std=c++98
 NAME			=	ex02
 INCLUDES		=	Account.hpp
 SRC				=	Account.cpp test.cpp

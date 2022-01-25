@@ -1,5 +1,5 @@
 CC				=	clang++
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 NAME			=	ex01
 INCLUDES		=	Zombie.hpp
 SRCS			=	main.cpp Zombie.cpp ZombieHorde.cpp

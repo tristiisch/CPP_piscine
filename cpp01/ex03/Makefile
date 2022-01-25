@@ -1,5 +1,5 @@
 CC				=	clang++
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 NAME			=	ex03
 INCLUDES		=	$(wildcard *.hpp) $(wildcard *.h)
 SRCS			=	$(wildcard *.cpp)

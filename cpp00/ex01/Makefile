@@ -1,5 +1,5 @@
 CC				=	clang++
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 NAME			=	phonebook
 INCLUDES		=	Contact.hpp PhoneBook.hpp
 SRCS			=	main.cpp Contact.cpp PhoneBook.cpp
