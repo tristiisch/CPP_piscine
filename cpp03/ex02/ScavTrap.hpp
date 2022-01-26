@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 15:16:29 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 17:38:10 by tglory           ###   ########lyon.fr   */
+/*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/26 14:15:06 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef SCRAVTRAP_HPP
+# define SCRAVTRAP_HPP
 
-Weapon::Weapon(std::string const &type) : type(type) {}
+# include "ClapTrap.hpp"
 
-std::string const &Weapon::getType()
+class ScavTrap : public ClapTrap
 {
-	return (this->type);
-}
+	public :
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const& instance);
+		ScavTrap &operator=(ScavTrap const &instance);
+		~ScavTrap();
 
-void Weapon::setType(std::string const &type)
-{
-	this->type = type;
-}
+		void guardGate();
+
+};
+
+#endif

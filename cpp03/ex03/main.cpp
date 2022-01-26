@@ -6,18 +6,18 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 17:25:42 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 18:15:02 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	ScavTrap foo("Foo");
-	ScavTrap nameless;
-	ScavTrap bar(foo);
-	ScavTrap passive("Passive");
+	FragTrap foo("Foo");
+	FragTrap nameless;
+	FragTrap bar(foo);
+	FragTrap passive("Passive");
 
 	bar.setName("Bar");
 	std::cout << std::endl;
@@ -48,10 +48,10 @@ int main()
 	foo.takeDamage(nameless.getAttackDamage());
 	std::cout << std::endl;
 
-	nameless.guardGate();
+	nameless.highFivesGuys();
 	std::cout << std::endl;
 
-	bar.guardGate();
+	bar.highFivesGuys();
 	std::cout << std::endl;
 
 	std::cout << foo << std::endl;

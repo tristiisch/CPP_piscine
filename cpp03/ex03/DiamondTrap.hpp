@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 15:15:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 17:38:08 by tglory           ###   ########lyon.fr   */
+/*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/26 18:29:48 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class Weapon
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	public:
-		Weapon(std::string const &);
-		void setType(std::string const &);
-		std::string const &getType();
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(DiamondTrap const& instance);
+		DiamondTrap &operator=(DiamondTrap const &instance);
+		~DiamondTrap();
+
+		void guardGate();
+		void highFivesGuys(void);
 
 	private:
-		std::string type;
+		std::string name;
 };
 
 #endif

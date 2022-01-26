@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 15:16:29 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 17:38:10 by tglory           ###   ########lyon.fr   */
+/*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/26 18:26:29 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-Weapon::Weapon(std::string const &type) : type(type) {}
+# include "ClapTrap.hpp"
 
-std::string const &Weapon::getType()
+# define HIT_POINT 100
+# define ENERGY_POINT 100
+# define ATTACK_DAMAGE 30
+
+class FragTrap : public ClapTrap
 {
-	return (this->type);
-}
+	public :
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap(FragTrap const& instance);
+		FragTrap &operator=(FragTrap const &instance);
+		~FragTrap();
 
-void Weapon::setType(std::string const &type)
-{
-	this->type = type;
-}
+		void highFivesGuys(void);
+};
+
+#endif
