@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 01:45:37 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 01:46:01 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main()
 	foo.attack("Bar");
 
 	nameless.attack("the void");
-
 	bar.beRepaired(5);
 
 	std::cout << foo << std::endl;
