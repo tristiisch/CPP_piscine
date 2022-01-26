@@ -6,11 +6,10 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:14:51 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/25 17:59:55 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 16:11:02 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
 #include "HumanB.hpp"
 #include "HumanA.hpp"
 

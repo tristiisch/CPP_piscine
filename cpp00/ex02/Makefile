@@ -1,24 +1,25 @@
 CC				=	clang++
-FLAGS			=	-Wall -Wextra -Werror -std=c++98
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 NAME			=	ex02
 INCLUDES		=	Account.hpp
-SRC				=	Account.cpp test.cpp
+SRCS			=	Account.cpp test.cpp
 
-OBJ				=	$(SRC:%.cpp=%.o)
+OBJS_DIR		=	objs
+OBJS			=	$(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(FLAGS) -o $@ $^
+$(OBJS_DIR)/%.o: %.cpp $(INCLUDES)
+	mkdir -p $(dir $@) && $(CC) $(CFLAGS) -c -o $@ $<
 
-%.o : %.cpp $(INCLUDES)
-	$(CC) $(FLAGS) -c -o $@ $<
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	rm -rf $(NAME) $(OBJS_DIR)
 
 re: fclean all
 

@@ -6,16 +6,13 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:36:15 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/25 19:26:21 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 15:51:26 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void)
-{
-	this->nb = 0;
-}
+PhoneBook::PhoneBook(void) : nb(0) {}
 
 PhoneBook::~PhoneBook(void) {}
 
@@ -27,7 +24,7 @@ void	PhoneBook::start()
 	this->help();
 	do {
 		std::cout << "> ";
-		if (!(std::cin >> command))
+		if (!(std::getline(std::cin, command)))
 			break;
 		if (!command.compare("ADD"))
 		{
@@ -52,13 +49,14 @@ void	PhoneBook::start()
 
 void	PhoneBook::showContacts()
 {
-	std::cout << std::setfill(' ') << std::setw(10) << "index" << "|";
+	std::cout << "\e[1;36m" << std::setfill(' ') << std::setw(10) << "index" << "|";
 	std::cout << std::setfill(' ') << std::setw(10) << "first name" << "|";
 	std::cout << std::setfill(' ') << std::setw(10) << "last name" << "|";
 	std::cout << std::setfill(' ') << std::setw(10) << "nickname" << "|";
 	std::cout << std::endl;
 	for (int i = 0; i < this->nb ; i++)
 		this->contacts[i].displayContact(i + 1);
+	std::cout << "\e[0m";
 }
 
 bool	PhoneBook::add()
@@ -86,7 +84,7 @@ bool	PhoneBook::search()
 		this->showContacts();
 		do {
 			std::cout << "Choose an <index> : ";
-			if (!(std::cin >> indexSelected))
+			if (!(std::getline(std::cin, indexSelected)))
 				return (false);
 		} while (indexSelected.find_first_not_of("12345678") != std::string::npos ||
 					indexSelected.length() != 1);
@@ -109,5 +107,5 @@ void	PhoneBook::help()
 	std::cout << "\e[1;36m-- Commands:" << std::endl;
 	std::cout << "     ADD: add a new friend" << std::endl;
 	std::cout << "     SEARCH: search a friend" << std::endl;
-	std::cout << "     EXIT: bye bye!\e[0m" << std::endl;
+	std::cout << "     EXIT: quit the program\e[0m" << std::endl;
 }

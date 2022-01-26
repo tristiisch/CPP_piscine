@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 14:26:44 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 17:24:00 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int main()
 	bar.setName("Bar");
 	std::cout << std::endl;
 
-//	foo.setAttackDamage(1);
-//	foo.setEnergyPoints(9);
 	while (foo.getEnergyPoints())
 	{
 		foo.attack("Bar");
@@ -32,7 +30,6 @@ int main()
 	foo.attack("Bar");
 	std::cout << std::endl;
 
-//	nameless.setAttackDamage(1);
 	nameless.attack("Bar");
 	bar.takeDamage(nameless.getAttackDamage());
 	std::cout << std::endl;
@@ -49,6 +46,12 @@ int main()
 
 	nameless.attack("Foo");
 	foo.takeDamage(nameless.getAttackDamage());
+	std::cout << std::endl;
+
+	nameless.guardGate();
+	std::cout << std::endl;
+
+	bar.guardGate();
 	std::cout << std::endl;
 
 	std::cout << foo << std::endl;

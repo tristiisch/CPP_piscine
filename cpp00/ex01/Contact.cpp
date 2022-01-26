@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:37:43 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/25 19:27:44 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 15:47:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ Contact::~Contact(void) {}
 bool Contact::askContact(void)
 {
 	std::cout << "\e[1;35mWhat is the <first name> ?\e[0m ";
-	if (!(std::cin >> this->firstName))
+	if (!(std::getline(std::cin, this->firstName)))
 		return (false);
 	std::cout << "\e[1;35mWhat is the <last name> ?\e[0m ";
-	if (!(std::cin >> this->lastName))
+	if (!(std::getline(std::cin, this->lastName)))
 		return (false);
 	std::cout << "\e[1;35mWhat is the <nickname> ?\e[0m ";
-	if (!(std::cin >> this->nickName))
+	if (!(std::getline(std::cin, this->nickName)))
 		return (false);
 	std::cout << "\e[1;35mWhat is the <phone number> ?\e[0m ";
-	if (!(std::cin >> this->phone))
+	if (!(std::getline(std::cin, this->phone)))
 		return (false);
 	std::cout << "\e[1;35mWhat is the <darkest secret> ?\e[0m ";
-	if (!(std::cin >> this->secret))
+	if (!(std::getline(std::cin, this->secret)))
 		return (false);
 	std::cout << "\e[0;32m" + this->firstName + " " + this->lastName + " has been added to PhoneBook\e[0m" << std::endl;
 	return (true);
@@ -59,10 +59,10 @@ void Contact::displayContact(int index) const
 
 void Contact::getContact(void) const
 {
-	std::cout << "Contact's infos :" << std::endl;
+	std::cout << "\e[1;35mContact's infos :" << std::endl;
 	std::cout << "  First name : " << this->firstName << std::endl;
 	std::cout << "  Last name : " << this->lastName << std::endl;
 	std::cout << "  Nickname : " << this->nickName << std::endl;
 	std::cout << "  Phone number : " << this->phone << std::endl;
-	std::cout << "  Darkest secret : " << this->secret << std::endl;
+	std::cout << "  Darkest secret : " << this->secret << "\e[0m" << std::endl;
 }
