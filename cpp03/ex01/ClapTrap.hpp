@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:55 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 14:00:53 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 14:28:00 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,15 @@ class ClapTrap
 		int getAttackDamage() const;
 		void setAttackDamage(int attackDamage);
 
+	protected:
+		bool hasEnoughEnergy();
+
 	private:
 		std::string name;
 		unsigned int hitPoints;
 		unsigned int energyPoints;
 		unsigned int attackDamage;
 
-		bool hasEnoughEnergy();
 };
 
 std::ostream &operator<<(std::ostream &outputFile, ClapTrap const &ct);

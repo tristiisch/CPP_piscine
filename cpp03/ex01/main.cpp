@@ -6,24 +6,24 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 13:57:06 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 14:26:44 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	ClapTrap foo("Foo");
-	ClapTrap nameless;
-	ClapTrap bar(foo);
-	ClapTrap passive("Passive");
+	ScavTrap foo("Foo");
+	ScavTrap nameless;
+	ScavTrap bar(foo);
+	ScavTrap passive("Passive");
 
 	bar.setName("Bar");
 	std::cout << std::endl;
 
-	foo.setAttackDamage(1);
-	foo.setEnergyPoints(9);
+//	foo.setAttackDamage(1);
+//	foo.setEnergyPoints(9);
 	while (foo.getEnergyPoints())
 	{
 		foo.attack("Bar");
@@ -32,7 +32,7 @@ int main()
 	foo.attack("Bar");
 	std::cout << std::endl;
 
-	nameless.setAttackDamage(1);
+//	nameless.setAttackDamage(1);
 	nameless.attack("Bar");
 	bar.takeDamage(nameless.getAttackDamage());
 	std::cout << std::endl;

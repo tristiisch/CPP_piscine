@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:18:34 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 14:19:17 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/26 14:19:11 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 	std::cout << "Create ClapTrap '" << this->name << "'." << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const& instance)
+ClapTrap::ClapTrap(ClapTrap const &instance)
 {
 	*this = instance;
 	std::cout << "Create cloned ClapTrap '" << this->name << "'." << std::endl;
@@ -39,7 +39,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &instance)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << this->name << " was destroyed." << std::endl;
+	std::cout << "ClapTrap " << this->name << " was destroyed." << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target) 
