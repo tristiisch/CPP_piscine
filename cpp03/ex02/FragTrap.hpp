@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 15:43:01 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 21:58:39 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define FRAGTRAP_HPP
 
 # include "ClapTrap.hpp"
-
-# define FT_HIT_POINT 100
-# define FT_ENERGY_POINT 100
-# define FT_ATTACK_DAMAGE 30
 
 class FragTrap : public ClapTrap
 {
@@ -29,6 +25,11 @@ class FragTrap : public ClapTrap
 		~FragTrap();
 
 		void highFivesGuys(void);
+
+	private:
+		static int hitPointsDefault;
+		static int energyPointsDefault;
+		static int attackDamageDefault;
 };
 
 #endif

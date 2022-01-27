@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 22:07:51 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/25 01:15:27 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 18:43:53 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@
 
 class Karen
 {
-	// This is pointer on fonction has asked on the subject
-	typedef void (Karen::*f)(void);
-
 	public:
 		void complain(std::string level);
 

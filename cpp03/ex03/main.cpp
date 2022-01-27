@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 16:06:45 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 22:30:24 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ int main()
 {
 	DiamondTrap foo("Foo");
 	DiamondTrap nameless;
-	DiamondTrap bar(foo);
+	DiamondTrap bar("Bar");
 	DiamondTrap passive("Passive");
 
-	bar.setName("Bar");
 	std::cout << std::endl;
 
 	while (foo.getEnergyPoints())
@@ -27,6 +26,8 @@ int main()
 		foo.attack("Bar");
 		bar.takeDamage(foo.getAttackDamage());
 	}
+	std::cout << std::endl;
+
 	foo.attack("Bar");
 	std::cout << std::endl;
 
@@ -37,13 +38,6 @@ int main()
 	bar.beRepaired(5);
 	std::cout << std::endl;
 
-	foo.beRepaired(1);
-	std::cout << std::endl;
-
-	nameless.attack("Foo");
-	foo.takeDamage(nameless.getAttackDamage());
-	std::cout << std::endl;
-
 	nameless.attack("Foo");
 	foo.takeDamage(nameless.getAttackDamage());
 	std::cout << std::endl;
@@ -51,7 +45,13 @@ int main()
 	nameless.highFivesGuys();
 	std::cout << std::endl;
 
-	bar.highFivesGuys();
+	nameless.guardGate();
+	std::cout << std::endl;
+
+	nameless.whoAmI();
+	std::cout << std::endl;
+
+	foo.whoAmI();
 	std::cout << std::endl;
 
 	std::cout << foo << std::endl;

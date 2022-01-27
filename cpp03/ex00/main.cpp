@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 13:57:06 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 21:54:05 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,29 @@
 int main()
 {
 	ClapTrap foo("Foo");
+	ClapTrap bar("Bar");
 	ClapTrap nameless;
-	ClapTrap bar(foo);
 	ClapTrap passive("Passive");
+	ClapTrap test("Test");
+	ClapTrap test2(test);
+	ClapTrap test3;
 
-	bar.setName("Bar");
+	test3 = test;
 	std::cout << std::endl;
 
-	foo.setAttackDamage(1);
-	foo.setEnergyPoints(9);
 	while (foo.getEnergyPoints())
 	{
 		foo.attack("Bar");
 		bar.takeDamage(foo.getAttackDamage());
 	}
+	std::cout << std::endl;
+
 	foo.attack("Bar");
 	std::cout << std::endl;
 
-	nameless.setAttackDamage(1);
+	foo.beRepaired(1);
+	std::cout << std::endl;
+
 	nameless.attack("Bar");
 	bar.takeDamage(nameless.getAttackDamage());
 	std::cout << std::endl;
@@ -40,21 +45,24 @@ int main()
 	bar.beRepaired(5);
 	std::cout << std::endl;
 
-	foo.beRepaired(1);
-	std::cout << std::endl;
-
 	nameless.attack("Foo");
 	foo.takeDamage(nameless.getAttackDamage());
 	std::cout << std::endl;
 
-	nameless.attack("Foo");
-	foo.takeDamage(nameless.getAttackDamage());
+	test.attack("Void");
+	std::cout << std::endl;
+
+	test2.takeDamage(7);
 	std::cout << std::endl;
 
 	std::cout << foo << std::endl;
 	std::cout << nameless << std::endl;
 	std::cout << bar << std::endl;
 	std::cout << passive << std::endl;
+	std::cout << test << std::endl;
+	std::cout << test2 << std::endl;
+	std::cout << test3 << std::endl;
 	std::cout << std::endl;
+
 	return (0);
 }

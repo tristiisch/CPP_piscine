@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 14:34:33 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 22:06:58 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ class FragTrap : public virtual ClapTrap
 		~FragTrap();
 
 		void highFivesGuys(void);
+
+	protected:
+		static int hitPointsDefault;
+		static int energyPointsDefault;
+		static int attackDamageDefault;
 };
 
 #endif

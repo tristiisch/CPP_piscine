@@ -6,18 +6,22 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:18:34 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 19:13:42 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 21:54:49 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : name("nameless"), hitPoints(10), energyPoints(10), attackDamage(0)
+int ClapTrap::hitPointsDefault = 10;
+int ClapTrap::energyPointsDefault = 10;
+int ClapTrap::attackDamageDefault = 0;
+
+ClapTrap::ClapTrap(void) : name("nameless"), hitPoints(hitPointsDefault), energyPoints(energyPointsDefault), attackDamage(attackDamageDefault)
 {
 	std::cout << "Create ClapTrap '" << this->name << "'." << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(hitPointsDefault), energyPoints(energyPointsDefault), attackDamage(attackDamageDefault)
 {
 	std::cout << "Create ClapTrap '" << this->name << "'." << std::endl;
 }
@@ -34,6 +38,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &instance)
 	this->hitPoints = instance.getHitPoints();
 	this->energyPoints = instance.getEnergyPoints();
 	this->attackDamage = instance.getAttackDamage();
+	std::cout << "Create cloned operator ClapTrap '" << this->name << "'." << std::endl;
 	return (*this);
 }
 

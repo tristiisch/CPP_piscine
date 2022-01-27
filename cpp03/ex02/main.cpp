@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 18:15:02 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 22:29:42 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ int main()
 {
 	FragTrap foo("Foo");
 	FragTrap nameless;
-	FragTrap bar(foo);
+	FragTrap bar("Bar");
 	FragTrap passive("Passive");
 
-	bar.setName("Bar");
 	std::cout << std::endl;
 
 	while (foo.getEnergyPoints())
@@ -27,6 +26,8 @@ int main()
 		foo.attack("Bar");
 		bar.takeDamage(foo.getAttackDamage());
 	}
+	std::cout << std::endl;
+
 	foo.attack("Bar");
 	std::cout << std::endl;
 
@@ -37,21 +38,11 @@ int main()
 	bar.beRepaired(5);
 	std::cout << std::endl;
 
-	foo.beRepaired(1);
-	std::cout << std::endl;
-
-	nameless.attack("Foo");
-	foo.takeDamage(nameless.getAttackDamage());
-	std::cout << std::endl;
-
 	nameless.attack("Foo");
 	foo.takeDamage(nameless.getAttackDamage());
 	std::cout << std::endl;
 
 	nameless.highFivesGuys();
-	std::cout << std::endl;
-
-	bar.highFivesGuys();
 	std::cout << std::endl;
 
 	std::cout << foo << std::endl;

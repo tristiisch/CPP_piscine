@@ -6,26 +6,30 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 15:42:55 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 22:23:39 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+int FragTrap::hitPointsDefault = 100;
+int FragTrap::energyPointsDefault = 100;
+int FragTrap::attackDamageDefault = 30;
+
 FragTrap::FragTrap(void) : ClapTrap()
 {
 	std::cout << "Create FragTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(FT_HIT_POINT);
-	this->setEnergyPoints(FT_ENERGY_POINT);
-	this->setAttackDamage(FT_ATTACK_DAMAGE);
+	this->hitPoints = this->hitPointsDefault;
+	this->energyPoints = this->energyPointsDefault;
+	this->attackDamage = this->attackDamageDefault;
 }
 
 FragTrap::FragTrap(std::string name)  : ClapTrap(name)
 {
 	std::cout << "Create FragTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(FT_HIT_POINT);
-	this->setEnergyPoints(FT_ENERGY_POINT);
-	this->setAttackDamage(FT_ATTACK_DAMAGE);
+	this->hitPoints = this->hitPointsDefault;
+	this->energyPoints = this->energyPointsDefault;
+	this->attackDamage = this->attackDamageDefault;
 }
 
 FragTrap::FragTrap(FragTrap const &instance)  : ClapTrap(instance)
@@ -35,10 +39,10 @@ FragTrap::FragTrap(FragTrap const &instance)  : ClapTrap(instance)
 
 FragTrap &FragTrap::operator=(FragTrap const &instance)
 {
-	this->setName(instance.getName());
-	this->setHitPoints(instance.getHitPoints());
-	this->setEnergyPoints(instance.getEnergyPoints());
-	this->setAttackDamage(instance.getAttackDamage());
+	this->name = instance.getName();
+	this->hitPoints = instance.getHitPoints();
+	this->energyPoints = instance.getEnergyPoints();
+	this->attackDamage = instance.getAttackDamage();
 	return (*this);
 }
 
@@ -49,8 +53,6 @@ FragTrap::~FragTrap()
 
 void FragTrap::highFivesGuys(void)
 {
-	if (!this->hasEnoughEnergy())
-		return;
 	std::cout << "     _.-._" << std::endl;
 	std::cout << "    | | | |_" << std::endl;
 	std::cout << "    | | | | |" << std::endl;

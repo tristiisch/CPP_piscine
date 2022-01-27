@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 19:15:02 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 22:22:16 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ ScavTrap::ScavTrap(ScavTrap const &instance) : ClapTrap(instance)
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &instance)
 {
-	this->name =instance.getName();
+	this->name = instance.getName();
 	this->hitPoints = instance.getHitPoints();
 	this->energyPoints = instance.getEnergyPoints();
 	this->attackDamage = instance.getAttackDamage();
@@ -53,8 +53,6 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-	if (!this->hasEnoughEnergy())
-		return;
 	std::cout << this->getName() << " enter in Gate keeper mode." << std::endl;
 }
 
@@ -63,5 +61,6 @@ void ScavTrap::attack(const std::string &target)
 	if (!this->hasEnoughEnergy())
 		return;
 	--this->energyPoints;
-	std::cout << "[ATTACK ScavTrap] " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
+	std::cout << "[ATTACK] ScavTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!" << std::endl;
 }
+

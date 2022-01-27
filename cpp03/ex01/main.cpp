@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 19:13:23 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 22:23:33 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ int main()
 		foo.attack("Bar");
 		bar.takeDamage(foo.getAttackDamage());
 	}
+	std::cout << std::endl;
+
 	foo.attack("Bar");
+	std::cout << std::endl;
+
+	foo.beRepaired(1);
 	std::cout << std::endl;
 
 	nameless.attack("Bar");
@@ -34,13 +39,6 @@ int main()
 	std::cout << std::endl;
 
 	bar.beRepaired(5);
-	std::cout << std::endl;
-
-	foo.beRepaired(1);
-	std::cout << std::endl;
-
-	nameless.attack("Foo");
-	foo.takeDamage(nameless.getAttackDamage());
 	std::cout << std::endl;
 
 	nameless.attack("Foo");

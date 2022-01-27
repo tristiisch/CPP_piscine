@@ -6,28 +6,33 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 16:04:33 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 22:27:07 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
+int DiamondTrap::hitPointsDefault = 100;
+int DiamondTrap::energyPointsDefault = 100;
+int DiamondTrap::attackDamageDefault = 30;
+
 DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
 {
+	this->name = ClapTrap::getName();
+	ClapTrap::name = this->getName() + "_clap_name";
 	std::cout << "Create DiamondTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(FragTrap::getHitPoints());
-	this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->setAttackDamage(FragTrap::getAttackDamage());
-	this->setName(ClapTrap::getName());
-	ClapTrap::setName(this->getName() + "_clap_name");
+	this->hitPoints = FragTrap::hitPointsDefault;
+	this->energyPoints = ScavTrap::energyPointsDefault;
+	this->attackDamage = FragTrap::attackDamageDefault;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name)
 {
 	std::cout << "Create DiamondTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(FragTrap::getHitPoints());
-	this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->setAttackDamage(FragTrap::getAttackDamage());
+	this->hitPoints = FragTrap::hitPointsDefault;
+	this->energyPoints = ScavTrap::energyPointsDefault;
+	this->attackDamage = FragTrap::attackDamageDefault;
+	ClapTrap::name = this->getName() + "_clap_name";
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &instance) : ScavTrap(instance)
@@ -37,10 +42,10 @@ DiamondTrap::DiamondTrap(DiamondTrap const &instance) : ScavTrap(instance)
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &instance)
 {
-	this->setName(instance.getName());
-	this->setHitPoints(instance.getHitPoints());
-	this->setEnergyPoints(instance.getEnergyPoints());
-	this->setAttackDamage(instance.getAttackDamage());
+	this->name = instance.getName();
+	this->hitPoints = instance.getHitPoints();
+	this->energyPoints = instance.getEnergyPoints();
+	this->attackDamage = instance.getAttackDamage();
 	return (*this);
 }
 
@@ -55,12 +60,12 @@ void DiamondTrap::whoAmI()
 				<< " but you can call me ClapTrap " << ClapTrap::getName() << "." << std::endl;
 }
 
+void DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
+}
+
 std::string DiamondTrap::getName() const
 {
 	return (this->name);
-}
-
-void DiamondTrap::setName(std::string name) 
-{
-	this->name = name;
 }

@@ -1,2 +1,0 @@
-check if typedef void (Karen::*f)(void) is usless or not
-https://isocpp.org/wiki/faq/pointers-to-members#:~:text=C%2B%2B%20introduces%20a%20new%20type,is%20undefined%20and%20probably%20disastrous

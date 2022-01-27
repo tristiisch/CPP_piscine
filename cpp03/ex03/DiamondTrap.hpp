@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 16:01:34 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 22:19:44 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,16 @@ class DiamondTrap : virtual public ClapTrap, public ScavTrap, public FragTrap
 		DiamondTrap &operator=(DiamondTrap const &instance);
 		~DiamondTrap();
 
+		void attack(const std::string &target);
 		void whoAmI();
 
 		std::string getName() const;
-		void setName(std::string name);
 
 	private:
+		static int hitPointsDefault;
+		static int energyPointsDefault;
+		static int attackDamageDefault;
+
 		std::string name;
 };
 
