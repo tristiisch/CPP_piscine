@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:55 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 14:00:53 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 19:02:47 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ class ClapTrap
 		std::string getName() const; 
 		void setName(std::string name);
 		int getHitPoints() const;
-		void setHitPoints(int hitPoints);
 		int getEnergyPoints() const;
-		void setEnergyPoints(int energyPoints);
 		int getAttackDamage() const;
-		void setAttackDamage(int attackDamage);
 
-	private:
+	protected:
+		static int hitPointsDefault;
+		static int energyPointsDefault;
+		static int attackDamageDefault;
+
 		std::string name;
 		unsigned int hitPoints;
 		unsigned int energyPoints;
 		unsigned int attackDamage;
-
 		bool hasEnoughEnergy();
 };
 

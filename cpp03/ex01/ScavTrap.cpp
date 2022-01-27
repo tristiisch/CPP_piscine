@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 18:07:49 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 19:01:06 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,30 @@ int ScavTrap::attackDamageDefault = 20;
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
 	std::cout << "Create ScavTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(hitPointsDefault);
-	this->setEnergyPoints(energyPointsDefault);
-	this->setAttackDamage(attackDamageDefault);
+	this->hitPoints = this->hitPointsDefault;
+	this->energyPoints = this->energyPointsDefault;
+	this->attackDamage = this->attackDamageDefault;
 }
 
-ScavTrap::ScavTrap(std::string name)  : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "Create ScavTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(hitPointsDefault);
-	this->setEnergyPoints(energyPointsDefault);
-	this->setAttackDamage(attackDamageDefault);
+	this->hitPoints = this->hitPointsDefault;
+	this->energyPoints = this->energyPointsDefault;
+	this->attackDamage = this->attackDamageDefault;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &instance)  : ClapTrap(instance)
+ScavTrap::ScavTrap(ScavTrap const &instance) : ClapTrap(instance)
 {
 	std::cout << "Create cloned ScavTrap '" << this->getName() << "'." << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &instance)
 {
-	this->setName(instance.getName());
-	this->setHitPoints(instance.getHitPoints());
-	this->setEnergyPoints(instance.getEnergyPoints());
-	this->setAttackDamage(instance.getAttackDamage());
+	this->name =instance.getName();
+	this->hitPoints = instance.getHitPoints();
+	this->energyPoints = instance.getEnergyPoints();
+	this->attackDamage = instance.getAttackDamage();
 	return (*this);
 }
 
