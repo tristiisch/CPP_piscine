@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:18:34 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 19:02:06 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 19:13:42 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,19 +97,9 @@ std::string ClapTrap::getName() const
 	return (this->name);
 }
 
-void ClapTrap::setName(std::string name) 
-{
-	this->name = name;
-}
-
 int ClapTrap::getHitPoints() const
 {
 	return (this->hitPoints);
-}
-
-void ClapTrap::setHitPoints(int hitPoints)
-{
-	this->hitPoints = hitPoints;
 }
 
 int ClapTrap::getEnergyPoints() const
@@ -117,19 +107,9 @@ int ClapTrap::getEnergyPoints() const
 	return (this->energyPoints);
 }
 
-void ClapTrap::setEnergyPoints(int energyPoints)
-{
-	this->energyPoints = energyPoints;
-}
-
 int ClapTrap::getAttackDamage() const
 {
 	return (this->attackDamage);
-}
-
-void ClapTrap::setAttackDamage(int attackDamage)
-{
-	this->attackDamage = attackDamage;
 }
 
 std::ostream &operator<<(std::ostream &outputFile, ClapTrap const &ct)

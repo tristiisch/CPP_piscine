@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 17:25:42 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 19:13:23 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ int main()
 {
 	ScavTrap foo("Foo");
 	ScavTrap nameless;
-	ScavTrap bar(foo);
+	ScavTrap bar("Bar");
 	ScavTrap passive("Passive");
 
-	bar.setName("Bar");
 	std::cout << std::endl;
 
 	while (foo.getEnergyPoints())
