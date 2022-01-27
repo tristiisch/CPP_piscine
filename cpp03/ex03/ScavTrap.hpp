@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 18:27:33 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 14:34:29 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
 	public :
 		ScavTrap();

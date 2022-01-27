@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 18:36:58 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 14:36:34 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap(void) : FragTrap()
 	this->setAttackDamage(20);
 }
 
-DiamondTrap::DiamondTrap(std::string name) : name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
 	std::cout << "Create DiamondTrap '" << this->getName() << "'." << std::endl;
 	this->setHitPoints(100);
@@ -30,7 +30,6 @@ DiamondTrap::DiamondTrap(std::string name) : name(name)
 
 DiamondTrap::DiamondTrap(DiamondTrap const &instance) : ScavTrap(instance)
 {
-	
 	std::cout << "Create cloned DiamondTrap '" << this->getName() << "'." << std::endl;
 }
 

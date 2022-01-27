@@ -6,13 +6,14 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 18:29:48 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 14:33:07 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
 
+# include "ClapTrap.hpp"
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
