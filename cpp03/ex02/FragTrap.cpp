@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 18:02:24 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 15:42:55 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 FragTrap::FragTrap(void) : ClapTrap()
 {
 	std::cout << "Create FragTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(HIT_POINT);
-	this->setEnergyPoints(ENERGY_POINT);
-	this->setAttackDamage(ATTACK_DAMAGE);
+	this->setHitPoints(FT_HIT_POINT);
+	this->setEnergyPoints(FT_ENERGY_POINT);
+	this->setAttackDamage(FT_ATTACK_DAMAGE);
 }
 
 FragTrap::FragTrap(std::string name)  : ClapTrap(name)
 {
 	std::cout << "Create FragTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(HIT_POINT);
-	this->setEnergyPoints(ENERGY_POINT);
-	this->setAttackDamage(ATTACK_DAMAGE);
+	this->setHitPoints(FT_HIT_POINT);
+	this->setEnergyPoints(FT_ENERGY_POINT);
+	this->setAttackDamage(FT_ATTACK_DAMAGE);
 }
 
 FragTrap::FragTrap(FragTrap const &instance)  : ClapTrap(instance)

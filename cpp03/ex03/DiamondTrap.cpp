@@ -6,26 +6,28 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 14:36:34 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 16:04:33 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : FragTrap()
+DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
 {
 	std::cout << "Create DiamondTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+	this->setHitPoints(FragTrap::getHitPoints());
+	this->setEnergyPoints(ScavTrap::getEnergyPoints());
+	this->setAttackDamage(FragTrap::getAttackDamage());
+	this->setName(ClapTrap::getName());
+	ClapTrap::setName(this->getName() + "_clap_name");
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name)
 {
 	std::cout << "Create DiamondTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+	this->setHitPoints(FragTrap::getHitPoints());
+	this->setEnergyPoints(ScavTrap::getEnergyPoints());
+	this->setAttackDamage(FragTrap::getAttackDamage());
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &instance) : ScavTrap(instance)
@@ -47,9 +49,18 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DiamondTrap " << this->getName() << " was destroyed." << std::endl;
 }
 
-void DiamondTrap::guardGate()
+void DiamondTrap::whoAmI()
 {
-	if (!this->hasEnoughEnergy())
-		return;
-	std::cout << this->getName() << " enter in Gate keeper mode." << std::endl;
+	std::cout	<< "My friends known me as DiamondTrap " << this->getName()
+				<< " but you can call me ClapTrap " << ClapTrap::getName() << "." << std::endl;
+}
+
+std::string DiamondTrap::getName() const
+{
+	return (this->name);
+}
+
+void DiamondTrap::setName(std::string name) 
+{
+	this->name = name;
 }

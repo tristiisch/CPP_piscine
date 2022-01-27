@@ -6,26 +6,30 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 15:32:24 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 18:07:49 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+int ScavTrap::hitPointsDefault = 100;
+int ScavTrap::energyPointsDefault = 50;
+int ScavTrap::attackDamageDefault = 20;
+
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
 	std::cout << "Create ScavTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+	this->setHitPoints(hitPointsDefault);
+	this->setEnergyPoints(energyPointsDefault);
+	this->setAttackDamage(attackDamageDefault);
 }
 
 ScavTrap::ScavTrap(std::string name)  : ClapTrap(name)
 {
 	std::cout << "Create ScavTrap '" << this->getName() << "'." << std::endl;
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+	this->setHitPoints(hitPointsDefault);
+	this->setEnergyPoints(energyPointsDefault);
+	this->setAttackDamage(attackDamageDefault);
 }
 
 ScavTrap::ScavTrap(ScavTrap const &instance)  : ClapTrap(instance)

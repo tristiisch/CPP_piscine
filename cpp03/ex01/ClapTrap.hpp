@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:55 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 14:28:00 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 16:13:10 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ class ClapTrap
 		void setAttackDamage(int attackDamage);
 
 	protected:
+		static int hitPointsDefault;
+		static int energyPointsDefault;
+		static int attackDamageDefault;
 		bool hasEnoughEnergy();
 
 	private:

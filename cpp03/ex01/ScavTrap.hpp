@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 14:15:06 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 16:52:51 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ class ScavTrap : public ClapTrap
 
 		void guardGate();
 
+	protected:
+		static int hitPointsDefault;
+		static int energyPointsDefault;
+		static int attackDamageDefault;
 };
 
 #endif

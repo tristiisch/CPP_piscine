@@ -6,18 +6,17 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:03:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 14:33:07 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 16:01:34 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
 
-# include "ClapTrap.hpp"
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap
+class DiamondTrap : virtual public ClapTrap, public ScavTrap, public FragTrap
 {
 	public:
 		DiamondTrap();
@@ -26,8 +25,10 @@ class DiamondTrap : public FragTrap, public ScavTrap
 		DiamondTrap &operator=(DiamondTrap const &instance);
 		~DiamondTrap();
 
-		void guardGate();
-		void highFivesGuys(void);
+		void whoAmI();
+
+		std::string getName() const;
+		void setName(std::string name);
 
 	private:
 		std::string name;

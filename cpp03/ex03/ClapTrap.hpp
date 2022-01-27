@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:55 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 14:28:00 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 16:05:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		std::string getName() const; 
+		std::string getName() const;
 		void setName(std::string name);
 		int getHitPoints() const;
 		void setHitPoints(int hitPoints);

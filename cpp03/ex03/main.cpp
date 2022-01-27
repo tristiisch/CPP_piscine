@@ -6,18 +6,18 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:13:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 18:15:02 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/27 16:06:45 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	FragTrap foo("Foo");
-	FragTrap nameless;
-	FragTrap bar(foo);
-	FragTrap passive("Passive");
+	DiamondTrap foo("Foo");
+	DiamondTrap nameless;
+	DiamondTrap bar(foo);
+	DiamondTrap passive("Passive");
 
 	bar.setName("Bar");
 	std::cout << std::endl;
