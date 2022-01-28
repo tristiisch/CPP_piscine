@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 22:49:01 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/28 00:04:28 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/28 01:16:10 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal
 		Animal(std::string name);
 		Animal(Animal const& instance);
 		Animal &operator=(Animal const &instance);
-		~Animal();
+		virtual ~Animal();
 
 		void virtual makeSound() const;
 		std::string getType() const;
