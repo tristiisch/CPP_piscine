@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/27 22:50:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/28 16:07:45 by tglory           ###   ########lyon.fr   */
+/*   Created: 2022/01/27 22:49:01 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/28 01:05:20 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int main(void)
+# include "Animal.hpp"
+# include "Brain.hpp"
+
+class Cat : public Animal
 {
-	int size = 10;
-	Animal *animals[size];
+	public:
+		Cat();
+		Cat(Cat const& instance);
+		Cat &operator=(Cat const &instance);
+		~Cat();
 
-	for (int i = 0; i < size / 2; ++i)
-	{
-		animals[i] = new Dog();
-	}
-	for (int i = size / 2; i < size; ++i)
-	{
-		animals[i] = new Cat();
-	}
+		void virtual makeSound() const;
+		Brain *getBrain() const;
+	private:
+		Brain* brain;
+};
 
-	for (int i = 0; i < size; ++i)
-	{
-		delete animals[i];
-	}
-}
+#endif
