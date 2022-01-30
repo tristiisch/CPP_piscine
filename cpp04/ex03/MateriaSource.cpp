@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/28 18:58:40 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/28 19:02:45 by tglory           ###   ########lyon.fr   */
+/*   Created: 2022/01/29 19:53:40 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/30 19:54:57 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+# include "Materia.hpp"
+# include "MateriaSource.hpp"
 
-class AMateria
+MateriaSource::MateriaSource() {}
+MateriaSource::~MateriaSource() {}
+
+void MateriaSource::learnMateria(AMateria* materia)
 {
-	protected:
-	public:
-		std::string const & getType() const; //Returns the materia type
-		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target);
-};
+	
+}
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+	AMateria *materia = new Ice();
+
+	return (materia);
+}

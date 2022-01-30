@@ -1,5 +1,6 @@
 CC				=	clang++
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98
+CFLAGS			=	-Wall -Wextra -std=c++98
+# CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 NAME			=	$(notdir $(shell pwd))
 INCLUDES		=	$(wildcard *.hpp) $(wildcard *.h)
 SRCS			=	$(wildcard *.cpp)
