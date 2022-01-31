@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:17:36 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 13:34:50 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 15:13:35 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <iostream>
 
 # define MAX_INV 4
-# define DEBUG 1
+# define DEBUG 0
 
 class AMateria;
 

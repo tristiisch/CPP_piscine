@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:07:05 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/25 23:00:38 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 15:28:23 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FIXED_HPP
 
 # include <iostream>
-# include <string>
 # include <cmath>
 
 class Fixed

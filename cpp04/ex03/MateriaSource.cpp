@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 19:53:40 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 13:23:09 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 15:10:27 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ void MateriaSource::learnMateria(AMateria* materia)
 			return;
 		}
 		else if (this->materias[i] == materia)
+		{
+			std::cout << "This instance of materia " << materia->getType() << " is already learned." << std::endl;
+			return;
+		}
+		else if (this->materias[i]->getType() == materia->getType())
 		{
 			std::cout << "Materia " << materia->getType() << " is already learned." << std::endl;
 			return;
