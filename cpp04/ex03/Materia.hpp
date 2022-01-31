@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 18:58:40 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/30 20:10:52 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 12:46:43 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ class ICharacter;
 class AMateria
 {
 	public:
+		AMateria();
 		AMateria(std::string name);
+		AMateria(AMateria const &instance);
+		virtual	~AMateria();
 		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
@@ -34,10 +37,11 @@ class Ice : public AMateria
 	public:
 		Ice();
 		Ice(Ice const &instance);
-		~Ice();
+		Ice &operator=(Ice const &instance);
+		virtual	~Ice();
 
-		virtual Ice* clone() const;
-		virtual void use(ICharacter& target);
+		Ice* clone() const;
+		void use(ICharacter& target);
 };
 
 class Cure : public AMateria
@@ -45,10 +49,11 @@ class Cure : public AMateria
 	public:
 		Cure();
 		Cure(Cure const &instance);
+		Cure &operator=(Cure const &instance);
 		~Cure();
 
-		virtual Cure* clone() const;
-		virtual void use(ICharacter& target);
+		Cure* clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

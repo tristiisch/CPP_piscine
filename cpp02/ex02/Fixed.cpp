@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:02:07 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 00:02:06 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 11:36:03 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,14 +133,14 @@ Fixed const &Fixed::max(Fixed const &value1, Fixed const &value2)
 	return (value2);
 }
 
-// Convert fixed-point to float
+// Converts fixed-point to float
 // 1 << fractional_bits == 2^(fractional_bits)
 float Fixed::toFloat(void) const
 {
 	return ((float)this->_rawBits / (float)(1 << this->_fractional_bits));
 }
 
-// Convert fixed-point to int
+// Converts fixed-point to int
 // Move 8 bits to right
 int Fixed::toInt(void) const
 {

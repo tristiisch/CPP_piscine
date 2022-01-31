@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 19:57:35 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/30 20:07:34 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 12:07:09 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MATERIASOURCE_HPP
 
 # include "Materia.hpp"
+# define MAX_MATERIA 4
 
 class IMateriaSource
 {
@@ -27,9 +28,16 @@ class MateriaSource : public IMateriaSource
 {
 	public:
 		MateriaSource();
+		MateriaSource(MateriaSource const &instance);
+		MateriaSource &operator=(MateriaSource const &instance);
 		~MateriaSource();
 		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const & type);
+	private:
+		AMateria *materias[MAX_MATERIA];
+
+		void initMateriaStorage();
+
 };
 
 #endif

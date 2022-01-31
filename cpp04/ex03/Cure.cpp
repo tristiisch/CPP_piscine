@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 20:02:19 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/30 20:09:47 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 13:41:45 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@ Cure::Cure(Cure const &instance) : AMateria("cure")
 	*this = instance;
 }
 
-Cure::~Cure()
+Cure &Cure::operator=(Cure const &instance)
 {
-
+	(void)instance;
+	return (*this);
 }
+
+Cure::~Cure() {}
 
 Cure* Cure::clone() const
 {
@@ -34,5 +37,5 @@ Cure* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << "’s wound *" << std::endl; 
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl; 
 }
