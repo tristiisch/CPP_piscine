@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:48:17 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 20:49:38 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 23:24:23 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ Form::~Form() {}
 void Form::beSigned(Bureaucrat &bureaucrat)
 {
 	if (this->isSigned())
-		throw new Form::FormAlreadySigned();
-	if (requireLvlToSigned <= bureaucrat.getGrade())
-		throw new Form::GradeTooLowException();
+		throw Form::FormAlreadySigned();
+	if (requireLvlToSigned < bureaucrat.getGrade())
+		throw Form::GradeTooLowException();
 	this->isSigne = true;
 }
 
@@ -55,7 +55,7 @@ int Form::getRequireLvlToExecute() const
 
 int Form::getRequireLvlToSigned() const
 {
-	return this->requireLvlToExecute;
+	return this->requireLvlToSigned;
 }
 
 bool Form::isSigned() const
@@ -68,6 +68,6 @@ std::ostream &operator<<(std::ostream &outputFile, Form const &instance)
 	outputFile << "Form " << instance.getName() << " is ";
 	if (!instance.isSigned())
 		outputFile << "not ";
-	outputFile << "signed. The minimum lvl to signed is " << instance.getRequireLvlToSigned() << " and the minimum lvl to execute is " << instance.getRequireLvlToExecute() << "." << std::endl;
+	outputFile << "signed. The minimum lvl to signed is " << instance.getRequireLvlToSigned() << " and the minimum lvl to execute is " << instance.getRequireLvlToExecute() << ".";
 	return outputFile;
 }

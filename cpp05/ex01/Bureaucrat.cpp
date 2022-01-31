@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 20:50:37 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 00:28:04 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &instance)
 	*this = instance;
 }
 
-Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance)
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance) : 
 {
 	this->name = instance.getName();
 	this->grade = instance.getGrade();
@@ -47,7 +47,6 @@ void Bureaucrat::upGrade()
 	if (this->grade <= HIGHEST_RANK)
 		throw Bureaucrat::GradeTooHighException();
 	--this->grade;
-	std::cout << this->name << " was promote lvl " << this->getGrade() << std::endl;
 }
 
 void Bureaucrat::downGrade()
@@ -55,7 +54,6 @@ void Bureaucrat::downGrade()
 	if (this->grade >= LOWEST_RANK)
 		throw Bureaucrat::GradeTooLowException();
 	++this->grade;
-	std::cout << this->name << " was demote lvl " << this->getGrade() << std::endl;
 }
 
 void Bureaucrat::signForm(Form &form)
@@ -63,9 +61,9 @@ void Bureaucrat::signForm(Form &form)
 	try {
 		form.beSigned(*this);
 		std::cout << this->name << " signs form " << form.getName() << "." << std::endl;
-	} catch (Form::FormAlreadySigned e) {
+	} catch (Form::FormAlreadySigned &e) {
 		std::cout << this->name << " cannot signs form " << form.getName() << " because the form is already signed." << std::endl;
-	} catch (Form::GradeTooLowException e) {
+	} catch (Form::GradeTooLowException &e) {
 		std::cout << this->name << " cannot signs form " << form.getName() << " because his grade is too low." << std::endl;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 19:43:43 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/01/31 23:19:01 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance)
 	this->grade = instance.getGrade();
 	return *this;
 }
+
+Bureaucrat::~Bureaucrat() {}
 
 std::string Bureaucrat::getName() const
 {
