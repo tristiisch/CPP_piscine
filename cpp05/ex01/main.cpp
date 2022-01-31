@@ -5,27 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 19:09:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 16:40:54 by tglory           ###   ########lyon.fr   */
+/*   Created: 2022/01/31 15:51:10 by tglory            #+#    #+#             */
+/*   Updated: 2022/01/31 20:51:37 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Bureaucrat.hpp"
 
-int main(void) 
+int main()
 {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
+	Bureaucrat *bureaucrat = new Bureaucrat("Jacky");
+	Form *form = new Form("Book", 50, 50);
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+	std::cout << *bureaucrat << std::endl;
+	std::cout << *form << std::endl;
 
-	std::cout << b << std::endl;
+	bureaucrat->signForm(*form);
 
-	std::cout << Fixed::max(a, b) << std::endl;
+	try
+	{
+		while (bureaucrat->getGrade() > HIGHEST_RANK)
+		{
+			bureaucrat->upGrade();
+		}
+	} catch (Bureaucrat::GradeTooHighException &e) {
+		std::cout << e.what() << std::endl;
+	}
 
+	std::cout << *bureaucrat << std::endl;
+	std::cout << *form << std::endl;
+	bureaucrat->signForm(*form);
+	std::cout << *form << std::endl;
+	delete bureaucrat;
+	delete form;
 	return 0;
 }
