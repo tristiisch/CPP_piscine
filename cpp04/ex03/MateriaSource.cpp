@@ -64,7 +64,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 		}
 		else if (this->materias[i]->getType() == materia->getType())
 		{
-			std::cout << "Materia " << materia->getType() << " is already learned." << std::endl;
+			std::cout << "Materia " << materia->getType() << " is already learned. You have to free it to avoid memory leaks." << std::endl;
 			return;
 		}
 	}

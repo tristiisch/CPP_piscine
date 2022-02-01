@@ -2,7 +2,6 @@
 
 Cure::Cure() : AMateria("cure")
 {
-
 }
 
 Cure::Cure(Cure const &instance) : AMateria("cure")

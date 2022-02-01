@@ -6,7 +6,7 @@
 # include <iostream>
 
 # define MAX_INV 4
-# define DEBUG 0
+# define DELETE_SAFE_BUFFER 1
 
 class AMateria; // necessary ?
 
@@ -22,9 +22,11 @@ class Character : public ICharacter
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 		Character &operator=(Character const & instance);
+		void unEquipSafe(int idx);
 	protected:
 		std::string name;
 		AMateria *inventory[MAX_INV];
+		AMateria *toDelete[DELETE_SAFE_BUFFER];
 		void initInventory();
 };
 
