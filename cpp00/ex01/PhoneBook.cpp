@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 17:36:15 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/26 15:51:26 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 16:07:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ bool	PhoneBook::search()
 		if (indexDisplay > this->nb)
 		{
 			std::cout << "\e[0;31mSorry, index " << indexDisplay;
-			std::cout << " doesn't exist yet. Create it! Back to menu.\e[0m" << std::endl;
+			std::cout << " doesn't exist yet. Creates it! Back to menu.\e[0m" << std::endl;
 		}
 		else
 			this->contacts[indexDisplay - 1].getContact();

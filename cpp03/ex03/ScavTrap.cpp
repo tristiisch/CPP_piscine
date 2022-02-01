@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 22:22:38 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 16:07:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ScavTrap::attackDamageDefault = 20;
 
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	std::cout << "Create ScavTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates ScavTrap '" << this->getName() << "'." << std::endl;
 	this->hitPoints = this->hitPointsDefault;
 	this->energyPoints = this->energyPointsDefault;
 	this->attackDamage = this->attackDamageDefault;
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "Create ScavTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates ScavTrap '" << this->getName() << "'." << std::endl;
 	this->hitPoints = this->hitPointsDefault;
 	this->energyPoints = this->energyPointsDefault;
 	this->attackDamage = this->attackDamageDefault;
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(ScavTrap const &instance) : ClapTrap(instance)
 {
-	std::cout << "Create cloned ScavTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates cloned ScavTrap '" << this->getName() << "'." << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &instance)

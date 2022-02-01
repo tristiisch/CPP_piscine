@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 22:39:51 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 16:07:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
 {
 	this->name = ClapTrap::getName();
 	ClapTrap::name = this->getName() + "_clap_name";
-	std::cout << "Create DiamondTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates DiamondTrap '" << this->getName() << "'." << std::endl;
 	this->hitPoints = this->hitPointsDefault;
 	this->energyPoints = this->energyPointsDefault;
 	this->attackDamage = this->attackDamageDefault;
@@ -28,16 +28,15 @@ DiamondTrap::DiamondTrap(void) : ClapTrap(), ScavTrap(), FragTrap()
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name)
 {
-	std::cout << "Create DiamondTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates DiamondTrap '" << this->getName() << "'." << std::endl;
 	this->hitPoints = FragTrap::hitPointsDefault;
 	this->energyPoints = ScavTrap::energyPointsDefault;
 	this->attackDamage = FragTrap::attackDamageDefault;
-	ClapTrap::name = this->getName() + "_clap_name";
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &instance) : ScavTrap(instance)
 {
-	std::cout << "Create cloned DiamondTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates cloned DiamondTrap '" << this->getName() << "'." << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &instance)

@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	std::cout << "Create " << this->getType() << std::endl;
+	std::cout << "Creates " << this->getType() << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const &instance)

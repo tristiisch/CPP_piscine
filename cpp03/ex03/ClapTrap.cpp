@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 00:18:34 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 22:01:46 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 16:07:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ int ClapTrap::attackDamageDefault = 0;
 
 ClapTrap::ClapTrap(void) : name("nameless"), hitPoints(hitPointsDefault), energyPoints(energyPointsDefault), attackDamage(attackDamageDefault)
 {
-	std::cout << "Create ClapTrap '" << this->name << "'." << std::endl;
+	std::cout << "Creates ClapTrap '" << this->name << "'." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(hitPointsDefault), energyPoints(energyPointsDefault), attackDamage(attackDamageDefault)
 {
-	std::cout << "Create ClapTrap '" << this->name << "'." << std::endl;
+	std::cout << "Creates ClapTrap '" << this->name << "'." << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const &instance)
 {
 	*this = instance;
-	std::cout << "Create cloned ClapTrap '" << this->name << "'." << std::endl;
+	std::cout << "Creates cloned ClapTrap '" << this->name << "'." << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &instance)
@@ -38,7 +38,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &instance)
 	this->hitPoints = instance.getHitPoints();
 	this->energyPoints = instance.getEnergyPoints();
 	this->attackDamage = instance.getAttackDamage();
-	std::cout << "Create cloned operator ClapTrap '" << this->name << "'." << std::endl;
+	std::cout << "Creates cloned operator ClapTrap '" << this->name << "'." << std::endl;
 	return (*this);
 }
 

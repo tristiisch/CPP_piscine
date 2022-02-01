@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:02:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 22:23:39 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 16:07:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int FragTrap::attackDamageDefault = 30;
 
 FragTrap::FragTrap(void) : ClapTrap()
 {
-	std::cout << "Create FragTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates FragTrap '" << this->getName() << "'." << std::endl;
 	this->hitPoints = this->hitPointsDefault;
 	this->energyPoints = this->energyPointsDefault;
 	this->attackDamage = this->attackDamageDefault;
@@ -26,7 +26,7 @@ FragTrap::FragTrap(void) : ClapTrap()
 
 FragTrap::FragTrap(std::string name)  : ClapTrap(name)
 {
-	std::cout << "Create FragTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates FragTrap '" << this->getName() << "'." << std::endl;
 	this->hitPoints = this->hitPointsDefault;
 	this->energyPoints = this->energyPointsDefault;
 	this->attackDamage = this->attackDamageDefault;
@@ -34,7 +34,7 @@ FragTrap::FragTrap(std::string name)  : ClapTrap(name)
 
 FragTrap::FragTrap(FragTrap const &instance)  : ClapTrap(instance)
 {
-	std::cout << "Create cloned FragTrap '" << this->getName() << "'." << std::endl;
+	std::cout << "Creates cloned FragTrap '" << this->getName() << "'." << std::endl;
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &instance)
