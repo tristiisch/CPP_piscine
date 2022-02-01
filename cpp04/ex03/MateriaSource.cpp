@@ -1,17 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/29 19:53:40 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/01 20:25:09 by tglory           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
-# include "Materia.hpp"
-# include "MateriaSource.hpp"
+#include "AMateria.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -75,7 +64,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 		}
 		else if (this->materias[i]->getType() == materia->getType())
 		{
-			std::cout << "Materia " << materia->getType() << " is already learned. You have to free it to avoid memory leaks." << std::endl;
+			std::cout << "Materia " << materia->getType() << " is already learned." << std::endl;
 			return;
 		}
 	}
