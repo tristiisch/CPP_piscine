@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:59:05 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 15:13:29 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 20:25:51 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,69 @@ void mandatoryTest()
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
+}
+
+void unequipTest()
+{
+	MateriaSource* src = new MateriaSource();
+
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter* me = new Character("me");
+
+	AMateria* instanceIce;
+	instanceIce = src->createMateria("ice");
+	me->equip(instanceIce);
+
+	AMateria* instanceCure;
+	instanceCure = src->createMateria("cure");
+	me->equip(instanceCure);
+
+	ICharacter* bob = new Character("bob");
+
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	me->unequip(0);
+	delete instanceIce;
+
+	me->unequip(1);
+	delete instanceCure;
+
+	delete bob;
+	delete me;
+	delete src;
+}
+
+void unequipCustomTest()
+{
+	MateriaSource* src = new MateriaSource();
+
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter* me = new Character("me");
+
+	AMateria* instanceIce;
+	instanceIce = src->createMateria("ice");
+	me->equip(instanceIce);
+
+	AMateria* instanceCure;
+	instanceCure = src->createMateria("cure");
+	me->equip(instanceCure);
+
+	ICharacter* bob = new Character("bob");
+
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	me->unEquipSafe(0);
+	me->unEquipSafe(1);
 
 	delete bob;
 	delete me;
@@ -115,7 +178,10 @@ void learnSameClassTest()
 	MateriaSource* src = new MateriaSource();
 
 	src->learnMateria(new Cure());
-	src->learnMateria(new Cure());
+
+	AMateria* tmp = new Cure();
+	src->learnMateria(tmp);
+	delete tmp;
 
 	delete src;
 }
@@ -124,6 +190,10 @@ int main()
 {
 	std::cout << "#####################{mandatoryTest}#####################" << std::endl;
 	mandatoryTest();
+	std::cout << "#####################{unequipTest}#####################" << std::endl;
+	unequipTest();
+	std::cout << "#####################{unequipCustomTest}#####################" << std::endl;
+	unequipCustomTest();
 	std::cout << std::endl << "#####################{notRegisterTest}#####################" << std::endl;
 	notRegisterTest();
 	std::cout << std::endl << "#####################{equipSameInstanceTest}#####################" << std::endl;

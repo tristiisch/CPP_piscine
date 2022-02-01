@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 20:02:19 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 15:02:56 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 20:22:21 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,17 @@ Character::~Character()
 		if (this->inventory[idx])
 		{
 			if (DEBUG)
-				std::cout << "[DEBUG] Materia " << this->inventory[idx]->getType() << ", id " << idx << " destroyed in " << this->getName() << "." << std::endl;
+				std::cout << "[DEBUG] Instance of Materia " << this->inventory[idx]->getType() << ", id " << idx << " destroyed in " << this->getName() << "." << std::endl;
 			delete this->inventory[idx];
+		}
+	}
+	for (int idx = 0; idx < DELETE_SAFE_BUFFER; ++idx)
+	{
+		if (this->toDelete[idx])
+		{
+			if (DEBUG)
+				std::cout << "[DEBUG] Instance unEquiped of Materia " << this->toDelete[idx]->getType() << " destroyed in " << this->getName() << "." << std::endl;
+			delete this->toDelete[idx];
 		}
 	}
 	if (DEBUG)
@@ -60,6 +69,8 @@ void Character::initInventory()
 {
 	for (int idx = 0; idx < MAX_INV; ++idx)
 		this->inventory[idx] = NULL;
+	for (int idx = 0; idx < DELETE_SAFE_BUFFER; ++idx)
+		this->toDelete[idx] = NULL;
 }
 
 std::string const & Character::getName() const
@@ -103,6 +114,32 @@ void Character::unequip(int idx)
 	}
 	this->inventory[idx] = NULL;
 }
+
+
+void Character::unEquipSafe(int idx)
+{
+	AMateria* materia;
+
+	if (!this->inventory[idx])
+	{
+		std::cout << "Materia id " << idx << " is null in inventory of " << this->getName() << std::endl;
+		return;
+	}
+	materia = this->inventory[idx];
+	this->inventory[idx] = NULL;
+	for (int i = 0; i < DELETE_SAFE_BUFFER; ++i)
+	{
+		if (!this->toDelete[i])
+		{
+			this->toDelete[i] = materia;
+			return;
+		}
+	}
+	if (DEBUG)
+		std::cout << "[DEBUG] The buffer of unEquipSafe is full. The instance of " << materia->getType() << " is delete right now." << std::endl;
+	delete materia;
+}
+
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx >= MAX_INV)
