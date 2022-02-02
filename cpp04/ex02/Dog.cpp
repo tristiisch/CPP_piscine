@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 22:53:19 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 16:56:48 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 19:58:09 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void Dog::makeSound() const
 	std::cout << "Woaf woaf !" << std::endl;
 }
 
-Brain* Cat::getBrain() const
+Brain* Dog::getBrain() const
 {
 	return (this->brain);
 }
