@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 20:02:19 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/01 20:22:21 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 02:37:30 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Character::Character(Character const &instance)
 Character &Character::operator=(Character const & instance)
 {
 	this->name = instance.getName();
-	for (int i = 0; i < MAX_INV; i++)
+	for (int i = 0; i < MAX_INV; ++i)
 	{
 		if (instance.inventory[i])
 			this->inventory[i] = instance.inventory[i]->clone();
