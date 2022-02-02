@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 03:22:09 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 03:44:41 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void defaultTest(Bureaucrat *bureaucrat, AForm *form)
 		}
 		bureaucrat->signForm(*form);
 		bureaucrat->execute(*form);
-	} catch (Bureaucrat::GradeTooHighException &e) {
+	} catch (std::exception &e) {
 		std::cout << "Unable to execute form : " << e.what() << std::endl;
 	}
 	delete form;

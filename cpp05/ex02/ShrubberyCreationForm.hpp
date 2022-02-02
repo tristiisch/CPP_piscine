@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 01:25:35 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 02:59:42 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 03:41:39 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SHRUBBERRYCREATIONFORM_HPP
 
 # include "AForm.hpp"
-# include <iostream>
 # include <fstream>
 
 class ShrubberyCreationForm : public AForm
