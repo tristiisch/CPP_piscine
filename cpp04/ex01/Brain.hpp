@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 00:32:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/28 02:00:32 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:09:25 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BRAIN_HPP
 
 # include <iostream>
+# include <cstdlib>
 
 class Brain
 {

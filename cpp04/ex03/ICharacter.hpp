@@ -2,7 +2,6 @@
 # define ICHARACTER_HPP
 
 # include "AMateria.hpp"
-# include <iostream>
 
 # define MAX_INV 4
 # define DEBUG 1

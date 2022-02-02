@@ -3,12 +3,11 @@
 
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
-# include <iostream>
 
 # define MAX_INV 4
 # define DELETE_SAFE_BUFFER 1
 
-class AMateria; // necessary ?
+class AMateria;
 
 class Character : public ICharacter
 {

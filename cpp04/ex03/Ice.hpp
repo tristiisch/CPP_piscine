@@ -1,7 +1,6 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
-# include <iostream>
 # include "Character.hpp"
 
 class ICharacter;
