@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:56:21 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 02:38:28 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 03:25:44 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ class AForm
 					return ("\e[0;31mForm::GradeTooLowException > Grade too low\e[0m");
 				}
 		};
-	protected:
+	private:
 		std::string name;
 		std::string target;
 		bool isSigne;

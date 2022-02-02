@@ -6,29 +6,13 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 01:26:02 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 03:10:50 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 03:28:18 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", "targetNoName", 25, 5)  {}
-
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", target, 25, 5)  {}
-
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &instance)
-{
-	*this = instance;
-}
-
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &instance)
-{
-	this->target = instance.getTarget();
-	this->isSigne = instance.isSigned();
-	this->requireLvlToSigned = instance.getRequireLvlToSigned();
-	this->requireLvlToExecute = instance.getRequireLvlToExecute();
-	return *this;
-}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
