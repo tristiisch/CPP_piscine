@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 23:19:01 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 18:07:58 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ Bureaucrat::Bureaucrat(std::string name) : name(name), grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade) {}
 
-Bureaucrat::Bureaucrat(Bureaucrat const &instance)
+Bureaucrat::Bureaucrat(Bureaucrat const &instance) : name(instance.getName()), grade(instance.getGrade())
 {
 	*this = instance;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance)
 {
-	this->name = instance.getName();
-	this->grade = instance.getGrade();
+	(void)instance;
 	return *this;
 }
 

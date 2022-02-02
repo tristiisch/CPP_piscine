@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 03:17:01 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 18:06:49 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ Bureaucrat::Bureaucrat(std::string name) : name(name), grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade) {}
 
-Bureaucrat::Bureaucrat(Bureaucrat const &instance)
+Bureaucrat::Bureaucrat(Bureaucrat const &instance) : name(instance.getName()), grade(instance.getGrade())
 {
 	*this = instance;
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance)
 {
-	this->name = instance.getName();
-	this->grade = instance.getGrade();
+	(void)instance;
 	return *this;
 }
 
@@ -40,20 +39,6 @@ std::string Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
 	return this->grade; 
-}
-
-void Bureaucrat::upGrade()
-{
-	if (this->grade <= HIGHEST_RANK)
-		throw Bureaucrat::GradeTooHighException();
-	--this->grade;
-}
-
-void Bureaucrat::downGrade()
-{
-	if (this->grade >= LOWEST_RANK)
-		throw Bureaucrat::GradeTooLowException();
-	++this->grade;
 }
 
 void Bureaucrat::signForm(Form &form)

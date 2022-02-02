@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:50:32 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 19:43:46 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 17:36:12 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class Bureaucrat
 		};
 
 	private:
-		std::string name;
+		const std::string name;
 		int grade;
 };
 

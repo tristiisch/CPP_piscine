@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 23:25:15 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 18:08:08 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,23 @@
 
 int main()
 {
-	Bureaucrat *bureaucrat = new Bureaucrat("Jacky");
+	Bureaucrat *matt = new Bureaucrat("Matt");
+	Bureaucrat *jacky;
 	Form *form = new Form("Book", 50, 75);
 
-	std::cout << *bureaucrat << std::endl;
+	std::cout << *matt << std::endl;
 	std::cout << *form << std::endl;
-	bureaucrat->signForm(*form);
+	matt->signForm(*form);
 
-	try
-	{
-		while (bureaucrat->getGrade() > form->getRequireLvlToSigned())
-		{
-			bureaucrat->upGrade();
-		}
-	} catch (Bureaucrat::GradeTooHighException &e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << *bureaucrat << std::endl;
+	jacky = new Bureaucrat("Jacky", 150);
+	std::cout << *jacky << std::endl;
 	std::cout << *form << std::endl;
-	bureaucrat->signForm(*form);
+	jacky->signForm(*form);
 
 	std::cout << *form << std::endl;
-	bureaucrat->signForm(*form);
+	jacky->signForm(*form);
 
-	delete bureaucrat;
+	delete jacky;
 	delete form;
 	return 0;
 }
