@@ -6,39 +6,49 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 23:25:15 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 03:22:09 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-int main()
+void defaultTest(Bureaucrat *bureaucrat, AForm *form)
 {
-	Bureaucrat *bureaucrat = new Bureaucrat("Jacky");
-	Form *form = new Form("Book", 50, 75);
-
-	std::cout << *bureaucrat << std::endl;
 	std::cout << *form << std::endl;
-	bureaucrat->signForm(*form);
-
 	try
 	{
 		while (bureaucrat->getGrade() > form->getRequireLvlToSigned())
 		{
 			bureaucrat->upGrade();
 		}
+		while (bureaucrat->getGrade() > form->getRequireLvlToExecute())
+		{
+			bureaucrat->upGrade();
+		}
+		bureaucrat->signForm(*form);
+		bureaucrat->execute(*form);
 	} catch (Bureaucrat::GradeTooHighException &e) {
-		std::cout << e.what() << std::endl;
+		std::cout << "Unable to execute form : " << e.what() << std::endl;
 	}
+	delete form;
+}
 
-	std::cout << *bureaucrat << std::endl;
-	std::cout << *form << std::endl;
-	bureaucrat->signForm(*form);
+int main()
+{
+	Bureaucrat *bureaucrat = new Bureaucrat("Jacky");
+	AForm *form;
 
-	std::cout << *form << std::endl;
-	bureaucrat->signForm(*form);
+	form = new RobotomyRequestForm("Elon");
+	defaultTest(bureaucrat, form);
+
+	form = new ShrubberyCreationForm("Foo");
+	defaultTest(bureaucrat, form);
+
+	form = new PresidentialPardonForm("Bar");
+	defaultTest(bureaucrat, form);
 
 	delete bureaucrat;
-	delete form;
 	return 0;
 }

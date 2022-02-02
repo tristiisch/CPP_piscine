@@ -19,7 +19,7 @@ clean :
 	rm -f $(OBJS)
 
 fclean : clean
-	rm -rf $(NAME) $(OBJS_DIR)
+	rm -rf $(NAME) $(OBJS_DIR) *_shrubbery
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/01 00:28:04 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 03:13:07 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &instance)
 	*this = instance;
 }
 
-Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance) : 
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance)
 {
 	this->name = instance.getName();
 	this->grade = instance.getGrade();
@@ -56,16 +56,16 @@ void Bureaucrat::downGrade()
 	++this->grade;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
-	try {
-		form.beSigned(*this);
-		std::cout << this->name << " signs form " << form.getName() << "." << std::endl;
-	} catch (Form::FormAlreadySigned &e) {
-		std::cout << this->name << " cannot signs form " << form.getName() << " because the form is already signed." << std::endl;
-	} catch (Form::GradeTooLowException &e) {
-		std::cout << this->name << " cannot signs form " << form.getName() << " because his grade is too low." << std::endl;
-	}
+	form.beSigned(*this);
+	std::cout << this->name << " signs form " << form.getName() << "." << std::endl;
+}
+
+void Bureaucrat::execute(AForm const &form)
+{
+	form.execute(*this);
+	std::cout << this->getName() << " executed " << form.getName() << "." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &outputFile, Bureaucrat const &instance)

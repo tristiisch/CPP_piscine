@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/01 00:28:04 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 03:17:01 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &instance)
 	*this = instance;
 }
 
-Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance) : 
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &instance)
 {
 	this->name = instance.getName();
 	this->grade = instance.getGrade();

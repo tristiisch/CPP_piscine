@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:50:32 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/01 00:28:09 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 02:07:17 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 # include <iostream>
 # include <exception>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # define HIGHEST_RANK 1
 # define LOWEST_RANK 150
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -35,7 +35,8 @@ class Bureaucrat
 		int getGrade() const;
 		void upGrade();
 		void downGrade();
-		void signForm(Form &form);
+		void signForm(AForm &form);
+		void execute(AForm const &form);
 
 		class GradeTooHighException : public std::exception
 		{

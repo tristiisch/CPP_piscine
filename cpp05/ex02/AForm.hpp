@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:56:21 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 23:14:49 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 02:38:28 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,24 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	public:
-		Form();
-		Form(std::string name);
-		Form(std::string name, int requireLvlToSigned, int requireLvlToExecute);
-		Form(Form const &instance);
-		Form &operator=(Form const &instance);
-		~Form();
+		AForm();
+		AForm(std::string name, std::string target, int requireLvlToSigned, int requireLvlToExecute);
+		AForm(AForm const &instance);
+		AForm &operator=(AForm const &instance);
+		virtual ~AForm();
 
 		std::string getName() const;
+		std::string getTarget() const;
 		bool isSigned() const;
 		int getRequireLvlToSigned() const;
 		int getRequireLvlToExecute() const;
+		void canExecute(Bureaucrat const &executor) const;
+		void canSigne(Bureaucrat const &executor) const;
 		void beSigned(Bureaucrat &bureaucrat);
+		virtual void execute(Bureaucrat const &executor) const = 0;
 
 		class FormAlreadySigned : public std::exception
 		{
@@ -39,6 +42,14 @@ class Form
 				virtual const char* what() const throw()
 				{
 					return ("\e[0;31mForm::FormAlreadySigned > The form is already signed\e[0m");
+				}
+		};
+		class NoSignatureException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("\e[0;31mForm::FormNotSigned > Unable to perform an action on it.\e[0m");
 				}
 		};
 		class GradeTooLowException : public std::exception
@@ -49,14 +60,15 @@ class Form
 					return ("\e[0;31mForm::GradeTooLowException > Grade too low\e[0m");
 				}
 		};
-	private:
+	protected:
 		std::string name;
+		std::string target;
 		bool isSigne;
 		int requireLvlToSigned;
 		int requireLvlToExecute;
 
 };
 
-std::ostream &operator<<(std::ostream &outputFile, Form const &instance);
+std::ostream &operator<<(std::ostream &outputFile, AForm const &instance);
 
 #endif
