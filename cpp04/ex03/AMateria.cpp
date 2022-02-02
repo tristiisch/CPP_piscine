@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 16:19:50 by tglory            #+#    #+#             */
+/*   Updated: 2022/02/02 16:19:58 by tglory           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AMateria.hpp"
 
-AMateria::AMateria() : name("empty") {}
+AMateria::AMateria() : name("nameless") {}
 
 AMateria::AMateria(AMateria const &instance)
 {

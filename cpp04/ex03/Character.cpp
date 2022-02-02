@@ -6,11 +6,11 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 20:02:19 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 02:37:30 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:20:03 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Character.hpp"
+#include "Character.hpp"
 
 Character::Character() : name("nameless")
 {
