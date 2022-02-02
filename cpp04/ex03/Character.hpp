@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:19:38 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 16:20:07 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:31:08 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define MAX_INV 4
 # define DELETE_SAFE_BUFFER 1
+# define DEBUG 0
 
 class AMateria;
 

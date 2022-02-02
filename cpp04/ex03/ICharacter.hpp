@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:20:27 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 16:20:28 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:31:00 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define ICHARACTER_HPP
 
 # include "AMateria.hpp"
-
-# define MAX_INV 4
-# define DEBUG 1
 
 class AMateria;
 

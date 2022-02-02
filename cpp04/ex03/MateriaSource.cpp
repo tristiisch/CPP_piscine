@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:20:36 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 16:20:36 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:33:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 		}
 	}
 	std::cout << "The space limit of " << MAX_MATERIA << " for MateriaSource has been reached. ";
-	std::cout << materia->getType() << " couldn't be added." << std::endl;
+	std::cout << materia->getType() << " couldn't be added. You have to free it to avoid memory leaks." << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const &type)

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:59:05 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/01 20:25:51 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:32:05 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,9 +190,9 @@ int main()
 {
 	std::cout << "#####################{mandatoryTest}#####################" << std::endl;
 	mandatoryTest();
-	std::cout << "#####################{unequipTest}#####################" << std::endl;
+	std::cout << std::endl << "#####################{unequipTest}#####################" << std::endl;
 	unequipTest();
-	std::cout << "#####################{unequipCustomTest}#####################" << std::endl;
+	std::cout << std::endl << "#####################{unequipCustomTest}#####################" << std::endl;
 	unequipCustomTest();
 	std::cout << std::endl << "#####################{notRegisterTest}#####################" << std::endl;
 	notRegisterTest();
