@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 00:32:46 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/28 16:26:48 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:25:32 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Brain
 	public:
 		Brain();
 		Brain(Brain const &instance);
-		void operator=(Brain const &instance);
+		Brain &operator=(Brain const &instance);
 		~Brain(void);
 	private:
 		std::string ideas[100];

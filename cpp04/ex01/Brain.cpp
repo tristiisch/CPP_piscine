@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 00:29:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 16:14:03 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:27:02 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,14 @@ Brain::Brain()
 		this->ideas[i] = getRandomChars(100);
 		//std::cout << this->ideas[i] << std::endl;
 	}
-	std::cout << "Bain created." << std::endl;
+	std::cout << "Brain created." << std::endl;
+}
+
+Brain& Brain::operator=(Brain const &instance)
+{
+	for(int i = 0; i < 100; i++)
+		this->ideas[i] = instance.ideas[i];
+	return (*this);
 }
 
 Brain::Brain(Brain const& instance)
@@ -46,11 +53,6 @@ Brain::Brain(Brain const& instance)
 
 Brain::~Brain(void)
 {
-	std::cout << "Bain destroyed." << std::endl;
+	std::cout << "Brain destroyed." << std::endl;
 }
 
-void Brain::operator=(Brain const &instance)
-{
-	for(int i = 0; i < 100; i++)
-		this->ideas[i] = instance.ideas[i];
-}
