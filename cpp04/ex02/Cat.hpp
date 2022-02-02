@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 22:49:01 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/28 01:05:20 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:58:33 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Cat : public Animal
 		~Cat();
 
 		void virtual makeSound() const;
-		Brain *getBrain() const;
+		Brain* getBrain() const;
 	private:
 		Brain* brain;
 };

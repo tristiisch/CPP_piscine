@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 22:50:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/28 16:07:45 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:55:26 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 int main(void)
 {
 	int size = 10;
-	Animal *animals[size];
+	Animal *animals[size];	
+	Dog test;
 
 	for (int i = 0; i < size / 2; ++i)
 	{

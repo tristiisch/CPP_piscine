@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 22:53:19 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/01 16:07:52 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/02 16:56:48 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Dog::Dog(Dog const &instance)
 Dog& Dog::operator=(Dog const &instance) 
 {
 	this->name = instance.getType();
+	this->brain = new Brain(*instance.getBrain());
 	return (*this);
 }
 
@@ -38,4 +39,9 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
 	std::cout << "Woaf woaf !" << std::endl;
+}
+
+Brain* Cat::getBrain() const
+{
+	return (this->brain);
 }
