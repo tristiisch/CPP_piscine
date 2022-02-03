@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:48:17 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 17:58:37 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/03 02:40:41 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ std::ostream &operator<<(std::ostream &outputFile, Form const &instance)
 	outputFile << "Form " << instance.getName() << " is ";
 	if (!instance.isSigned())
 		outputFile << "not ";
-	outputFile << "signed. The minimum lvl to signed is " << instance.getRequireLvlToSigned() << " and the minimum lvl to execute is " << instance.getRequireLvlToExecute() << ".";
+	outputFile	<< "signed. Minimum lvl to signed : " << instance.getRequireLvlToSigned()
+				<< " & minimum lvl to execute : " << instance.getRequireLvlToExecute() << ".";
 	return outputFile;
 }
