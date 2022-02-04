@@ -1,112 +1,85 @@
-#include <iostream> //std::
-#include <cstdlib> //rand srand
-#include <unistd.h> //usleep
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/04 18:24:49 by tglory            #+#    #+#             */
+/*   Updated: 2022/02/04 18:25:17 by tglory           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
-# define CYAN			"\e[0;36m"
-# define V_BLUE			"\e[0;38;5;27m"
-# define P_BLUE			"\e[0;38;5;24m"
-# define V_CYAN			"\e[0;38;5;44m"
-# define MAGENTA		"\e[0;35m"
-# define PURPLE			"\e[0;38;5;93m"
-# define LILAC			"\e[0;38;5;13m"
-# define PINK			"\e[0;38;5;199m"
-# define GREEN			"\e[0;32m"
-# define V_GREEN		"\e[0;38;5;82m"
-
-class Base { public: virtual ~Base(void){}};
-class A : public Base {};
-class B : public Base {};
-class C : public Base {};
+#include "Base.hpp"
 
 Base *generate(void)
 {
-	Base *class_pointer;
-	int random_number;
+	Base *baseClass;
+	int random;
 
-	std::cout << "---------- generating class ----------\n" << std::endl;
-	std::srand((unsigned int)time(NULL));
-	random_number = rand() % 100;
-	if (random_number < 33)
+	std::srand(time(NULL));
+	random = rand() % 3;
+	switch (random)
 	{
-		class_pointer = new A();
-		std::cout << "class A generated\n" << std::endl;
+		case 0:
+			baseClass = new A();
+			std::cout << "class A generated" << std::endl;
+			break;
+		case 1:
+			baseClass = new B();
+			std::cout << "class B generated" << std::endl;
+			break;
+		case 2:
+		default:
+			baseClass = new C();
+			std::cout << "class C generated" << std::endl;
+			break;
 	}
-	else if (random_number < 66)
-	{
-		class_pointer = new B();
-		std::cout << "class B generated\n" << std::endl;
-	}
-	else
-	{
-		class_pointer = new C();
-		std::cout << "class C generated\n" << std::endl;
-	}
-	return class_pointer;
+	return baseClass;
 }
 
 void identify(Base* p)
 {
-	std::cout << "----- identifying class by pointer -----\n" << std::endl;
 	if (dynamic_cast<A*>(p))
-		std::cout << "A\n" << std::endl;
+		std::cout << "A identify with pointer" << std::endl;
 	else if (dynamic_cast<B*>(p))
-		std::cout << "B\n" << std::endl;
+		std::cout << "B identify with pointer" << std::endl;
 	else if (dynamic_cast<C*>(p))
-		std::cout << "C\n" << std::endl;
+		std::cout << "C identify with pointer" << std::endl;
 }
 
-void identify(Base& p)
+void identify(Base& ref)
 {
-	std::cout << "---- identifying class by reference ----\n" << std::endl;
 	try 
 	{
-		dynamic_cast<A &>(p);
-		std::cout << "A" << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << " Not A" << std::endl;
+		(void) dynamic_cast<A&>(ref);
+		std::cout << "A identify with ref" << std::endl;
+	} catch (std::exception &e) {
+		// std::cout << e.what() << " Not A" << std::endl;
 	}
 	try 
 	{
-		dynamic_cast<B &>(p);
-		std::cout << "B" << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << " Not B" << std::endl;
+		(void) dynamic_cast<B&>(ref);
+		std::cout << "B identify with ref" << std::endl;
+	} catch (std::exception &e) {
+		// std::cout << e.what() << " Not B" << std::endl;
 	}
 	try 
 	{
-		dynamic_cast<C &>(p);
-		std::cout << "C" << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << " Not C" << std::endl;
-	}
-}
-
-static void	tic_tac(int usleep_time, int duration)
-{
-	for (int i = 0; i < duration; i++)
-	{
-		std::cout << "." << std::endl;
-		usleep(usleep_time);
+		(void) dynamic_cast<C&>(ref);
+		std::cout << "C identify with ref" << std::endl;
+	} catch (std::exception &e) {
+		// std::cout << e.what() << " Not C" << std::endl;
 	}
 }
 
 int main(void)
 {
-	std::string colors[10] = {CYAN, V_BLUE, P_BLUE, V_CYAN, MAGENTA, PURPLE, LILAC, PINK, GREEN, V_GREEN};
+	Base *classRandom = generate();
+	Base &classRef = *classRandom;
 
-	for (int i = 0; i < 10; i++, tic_tac(500000, 5))
-	{
-		std::cout << colors[i] << std::endl;
-		Base *random_class = generate();
-		Base &class_reference = *random_class;
-		identify(random_class);
-		identify(class_reference);
-		delete random_class;
-	}
+	identify(classRandom);
+	identify(classRef);
+
+	delete classRandom;
 }

@@ -2,8 +2,9 @@
 # define DATA_HPP
 
 # include <iostream>
+# include <stdint.h>
 
-typedef struct	s_Data
+typedef struct s_Data
 {
 	int nbr;
 } Data;

@@ -10,17 +10,21 @@ Data* deserialize(uintptr_t raw)
 	return (reinterpret_cast<Data*>(raw));
 }
 
-int		main(void)
+int main(void)
 {
-	Data *ptr = new Data;
+	Data *ptr = new Data();
+	ptr->nbr = 42;
 
-	ptr->nbr = 10;
-	std::cout << "Address of ptr:\t\t\t\t" << ptr << "\nValue in ptr struct:\t\t\t" << ptr->nbr << std::endl;
-	uintptr_t tmp_serialize = serialize(ptr);
-	std::cout << "Address after serialize() use:\t\t" << tmp_serialize << std::endl;
-	Data *recovered = deserialize(tmp_serialize);
-	std::cout << "Address after deserialize() use:\t" << recovered << std::endl;
-	std::cout << "Value after deserialize() use:\t\t" << recovered->nbr << std::endl;
+	std::cout << "Address of ptr :\t\t\t" << ptr << std::endl;
+	std::cout << "Value in struct :\t\t\t" << ptr->nbr << std::endl;
+
+	uintptr_t serialization = serialize(ptr);
+	std::cout << "Address of serialize() :\t\t" << serialization << std::endl;
+
+	Data *recovered = deserialize(serialization);
+	std::cout << "Address after deserialize() :\t\t" << recovered << std::endl;
+	std::cout << "Value after deserialize() :\t\t" << recovered->nbr << std::endl;
+
 	delete ptr;
 	return (0);
 }
