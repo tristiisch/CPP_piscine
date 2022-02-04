@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 18:08:08 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/04 17:42:35 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ int main()
 	std::cout << *matt << std::endl;
 	std::cout << *form << std::endl;
 	matt->signForm(*form);
+	std::cout << std::endl;
 
-	jacky = new Bureaucrat("Jacky", 150);
+	jacky = new Bureaucrat("Jacky", 10);
 	std::cout << *jacky << std::endl;
 	std::cout << *form << std::endl;
 	jacky->signForm(*form);
+	std::cout << std::endl;
 
 	std::cout << *form << std::endl;
 	jacky->signForm(*form);
