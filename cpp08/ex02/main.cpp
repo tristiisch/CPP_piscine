@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:54:55 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/05 08:57:37 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 08:58:03 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int main()
 	--it;
 	while (it != ite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+		std::cout << *it << std::endl;
+		++it;
 	}
 	std::stack<int> s(mstack);
 	return 0;
