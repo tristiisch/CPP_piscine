@@ -1,41 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/05 07:31:44 by tglory            #+#    #+#             */
+/*   Updated: 2022/02/05 08:01:17 by tglory           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "iter.hpp"
 
-int		main(int ac, char **av)
+int main(void)
 {
-	if (ac != 2)
-	{
-		std::cout << "Usage: ./ex01.out <argument>" << std::endl;
-		return (0);
-	}
-	char *str = av[1];
-	int i = 0;
+	int size;
 
-	while (str[i])
-		i++;
+	int ints[] = {42, 69, 74, 87, 199};
+	size = sizeof(ints) / sizeof(*ints);
+	iter(ints, size, display);
+	std::cout << std::endl << std::endl;
 
-	std::cout << "**Array before iter() called with template function:" << std::endl;
-	std::cout << str << std::endl;
-	iter(str, i, function);
+	float floats[] = {42.8f, 74.0f, 199.9f, 87.5f, 69.1f};
+	size = sizeof(floats) / sizeof(*floats);
+	iter(floats, size, display);
+	std::cout << std::endl << std::endl;
 
-	std::cout << "** Content in the Array after iter():" << std::endl;
-	std::cout << str << std::endl;
-	std::cout << "** tab of int before iter():" << std::endl;
+	double doubles[] = {42.88, 74.66, 199.99, 87.55, 69.11};
+	size = sizeof(doubles) / sizeof(*doubles);
+	iter(doubles, size, display);
+	std::cout << std::endl << std::endl;
 
-	int tab[4] = {70, 71, 72, 73};
+	bool bools[] = { false, true };
+	size = sizeof(bools) / sizeof(*bools);
+	iter(bools, size, display);
+	std::cout << std::endl << std::endl;
 
-	i = 0;
-	while (i < 4)
-	{
-		std::cout << tab[i] << std::endl;
-		i++;
-	}
-	iter(tab, 4, function);
-	std::cout << "** tab Content after iter():" << std::endl;
-	i = 0;
-	while (i < 4)
-	{
-		std::cout << tab[i] << std::endl;
-		i++;
-	}
+	char string[] = "You should give me outstanding !!!";
+	size = sizeof(string) / sizeof(*string);
+	iter(string, size, displayString);
+	std::cout << std::endl << std::endl;
+
+	std::string strings[] = {"Hello", "world", "template"};
+	size = sizeof(strings) / sizeof(*strings);
+	iter(strings, size, display);
+	std::cout << std::endl;
+
 	return (0);
 }

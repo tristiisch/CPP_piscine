@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:37:22 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/04 18:41:01 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 07:05:57 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template<typename T>
 void swap(T &x, T &y)
 {
 	T temp;
-	
+
 	temp = x;
 	x = y;
 	y = temp;

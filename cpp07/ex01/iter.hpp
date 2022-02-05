@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:01:28 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/04 19:03:51 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 08:00:55 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 
 template<typename T>
-void iter(T array[], int const len, void f(T &param))
+void iter(T array[], int const len, void f(T const &param))
 {
 	int i = 0;
 	while (i < len)
@@ -27,10 +27,15 @@ void iter(T array[], int const len, void f(T &param))
 }
 
 template<typename T>
-void function(T &param)
+void display(T const &value)
 {
-	if ((param >= 65 && param <= 90) || (param >= 97 && param <= 122))
-		param -= 32;
+	std::cout << value << " ";
+}
+
+template<typename T>
+void displayString(T const &value)
+{
+	std::cout << value;
 }
 
 #endif

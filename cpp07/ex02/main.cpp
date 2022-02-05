@@ -1,54 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/05 07:53:33 by tglory            #+#    #+#             */
+/*   Updated: 2022/02/05 08:02:37 by tglory           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
 # include "Array.hpp"
 
-int		main(void)
+int main()
 {
-	std::cout << "*** test with int ***" << std::endl;
-	Array <int>test(42);
-	Array <int>test2(10);
+	Array<int> intArray1(10);
+	Array<int> intArray2(1);
 	int i = 0;
-	while (i < 42)
+
+	while (i < intArray1.size())
 	{
-		test[i] = i;
-		i++;
+		intArray1[i] = i;
+		++i;
 	}
-	test2 = test;
+	intArray2 = intArray1;
 	i = 0;
-	std::cout << "A copy of test named test2 as been made using the copy constructor." << std::endl;
-	std::cout << "content in test._Array[] and in test2._Array[] using operator[]" << std::endl;
-	while (i < 42)
+	while (i < intArray1.size())
 	{
-		std::cout << "test:\t"<< test[i] << "\t\ttest2:\t" << test2[i] << std::endl;
+		std::cout << "intArray1:\t"<< intArray1[i] << "\t\tintArray2:\t" << intArray2[i] << std::endl;
 		i++;
 	}
-	std::cout << "\nArray._Size using Array.size() function:\t" << test.size() << std::endl;
-	std::cout << "\n*** Creation of an empty Array with basic constructor *** " << std::endl;
-	Array <int>empty;
-	std::cout << "_Size value in empty Array:\t" << empty.size() << std::endl;
-	std::cout << "\n*** test with std::string ***" << std::endl;
-	Array<std::string>strs(10);
+
+	Array<int> intArrayEmpty;
+	std::cout << "intArrayEmpty Size:\t" << intArrayEmpty.size() << std::endl;
+
+	Array<std::string> stringArray(3);
 	i = 0;
-	std::cout << "Content in Array._Array[]:" << std::endl;
-	while (i < 10)
-	{
-		strs[i] = "YeeeeeehHaaaa !";
-		i++;
-	}
+	while (i < stringArray.size())
+		stringArray[i++] = "Foo Bar";
 	i = 0;
-	while (i < 10)
-	{
-		std::cout << strs[i] << std::endl;
-		i++;
-	}
-	std::cout << "*** test of the exception class nested in Array class ***" << std::endl;
-	std::cout << "\n***trying to access a non allocated memory zone:" << std::endl;
+	while (i < stringArray.size())
+		std::cout << stringArray[i++] << std::endl;
+
 	try
 	{
-		std::cout << strs[666] << std::endl;
-	}
-	catch (std::exception &e)
-	{
+		std::cout << intArrayEmpty[42] << std::endl;
+	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
-	return (0);
+	return 0;
 }

@@ -5,66 +5,66 @@
 # include <iostream>
 # include <exception>
 
-
 template <typename T>
-class	Array
+class Array
 {
 	public:
-		/********** Constructors & Destructors ********/
-		Array(void) : _Array(NULL), _Size(0){}
-		Array(unsigned int size) : _Array(new T[size]), _Size(size){}
-		Array(Array const &copy)
+		Array() : array(NULL), _size(0) {}
+		Array(unsigned int size) : array(new T[size]), _size(size)
 		{
-			_Size = copy._Size;
-			_Array = new T[_Size];
+			if (size < 0)
+				throw OutOfRangeException();
+		}
+		Array(Array const &instance)
+		{
 			unsigned int i = 0;
-			while (i < _Size)
+			this->_size = instance._size;
+			this->array = new T[_size];
+			while (i < _size)
 			{
-				_Array[i] = copy._Array[i];
+				this->array[i] = instance.array[i];
 				i++;
 			}
 			return ;
 		}
-		~Array(void) {delete [] _Array;}
-
-		/***************** Overloads ******************/
-		Array	&operator=(Array const &rhs)
+		Array &operator=(Array const &instance)
 		{
-			if (_Size != 0 && _Size != rhs._Size)
-				delete [] _Array;
-			_Size = rhs._Size;
-			_Array = new T[_Size];
+			if (this->_size != 0 && this->_size != instance._size)
+				delete [] array;
+			this->_size = instance._size;
+			this->array = new T[_size];
 			unsigned int i = 0;
-			while (i < _Size)
+			while (i < this->_size)
 			{
-				_Array[i] = rhs._Array[i];
-				i++;
+				this->array[i] = instance.array[i];
+				++i;
 			}
 			return (*this);
 		}
-
-		T	&operator[](unsigned int i)
+		~Array()
 		{
-			 if (i >= _Size)
-				 throw OutOfLimitsException();
-			 else
-				 return (_Array[i]);
+			delete [] array;
 		}
-
-		/***************** Exeption class ****************/
-		class OutOfLimitsException : public std::exception
+		T &operator[](unsigned int i)
+		{
+			if (i < 0 || i >= _size)
+				throw OutOfRangeException();
+			return (this->array[i]);
+		}
+		int size()
+		{
+			return (_size);
+		}
+		class OutOfRangeException : public std::exception
 		{
 			virtual const char *what() const throw()
 			{
-				return ("This element is out of the limits");
+				return ("\e[0;31mArray::OutOfRangeException > This index is out of range\e[0m");
 			}
 		};
-
-		/**************** Member function *****************/
-		T	size(void) {return (_Size);}
 	private:
-		T *_Array;
-		unsigned int _Size;
+		T *array;
+		unsigned int _size;
 };
 
 #endif
