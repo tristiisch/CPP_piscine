@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:59:01 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/27 18:36:36 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 08:22:35 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ int main(int argc, char const *argv[])
 	fileName = argv[1];
 	s1 = argv[2];
 	s2 = argv[3];
-	src.open(fileName);
+	src.open(fileName.c_str());
 	if (src.fail())
 	{
 		std::cout << "Can't open file '" << fileName << "'." << std::endl;
 		return (4);
 	}
 	destName = fileName + ".replace";
-	dest.open(destName);
+	dest.open(destName.c_str());
 	if (dest.fail())
 	{
 		src.close();

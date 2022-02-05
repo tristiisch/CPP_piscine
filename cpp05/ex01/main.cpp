@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:10 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/04 17:42:35 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/05 08:28:31 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main()
 	std::cout << *form << std::endl;
 	jacky->signForm(*form);
 
+	delete matt;
 	delete jacky;
 	delete form;
 	return 0;
