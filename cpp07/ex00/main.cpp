@@ -6,13 +6,13 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:45:13 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/05 07:58:15 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 15:07:14 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "whatever.hpp"
 
-int main( void )
+int main()
 {
 	int i1 = 2;
 	int i2 = 3;

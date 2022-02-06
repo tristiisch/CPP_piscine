@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Converter.cpp                                        :+:      :+:    :+:   */
+/*   Converter.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:04:50 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/04 02:25:36 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 14:54:55 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ bool Converter::isDigit()
 int Converter::toInt()
 {
 	long nb = static_cast<long>(std::strtold(raw, NULL));
-	// if (nb > 2147483647 || nb < -2147483648 || raw == "nan" || raw == "nanf")
 	if (nb > 2147483647 || nb < -2147483648)
 		throw Converter::ConvertImpossible();
 	return (static_cast<int>(nb));

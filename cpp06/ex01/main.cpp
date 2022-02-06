@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/06 14:57:40 by tglory            #+#    #+#             */
+/*   Updated: 2022/02/06 15:04:01 by tglory           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Data.hpp"
 
-uintptr_t serialize(Data* ptr)
+static uintptr_t serialize(Data* ptr)
 {
 	return (reinterpret_cast<uintptr_t>(ptr));
 }
 
-Data* deserialize(uintptr_t raw)
+static Data* deserialize(uintptr_t raw)
 {
 	return (reinterpret_cast<Data*>(raw));
 }
@@ -19,7 +31,7 @@ int main(void)
 	std::cout << "Value in struct :\t\t\t" << ptr->nbr << std::endl;
 
 	uintptr_t serialization = serialize(ptr);
-	std::cout << "Address of serialize() :\t\t" << serialization << std::endl;
+	std::cout << "Serialize() result:\t\t\t" << serialization << std::endl;
 
 	Data *recovered = deserialize(serialization);
 	std::cout << "Address after deserialize() :\t\t" << recovered << std::endl;

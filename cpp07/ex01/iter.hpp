@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 19:01:28 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/05 08:00:55 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 15:08:16 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void iter(T array[], int const len, void f(T const &param))
 {
 	int i = 0;
 	while (i < len)
-	{
-		f(array[i]);
-		i++;
-	}
+		f(array[i++]);
 }
 
 template<typename T>

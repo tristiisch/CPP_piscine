@@ -20,20 +20,22 @@ class Array
 			unsigned int i = 0;
 			this->_size = instance._size;
 			this->array = new T[_size];
+
 			while (i < _size)
 			{
 				this->array[i] = instance.array[i];
-				i++;
+				++i;
 			}
-			return ;
 		}
 		Array &operator=(Array const &instance)
 		{
 			if (this->_size != 0 && this->_size != instance._size)
 				delete [] array;
+
 			this->_size = instance._size;
 			this->array = new T[_size];
 			unsigned int i = 0;
+
 			while (i < this->_size)
 			{
 				this->array[i] = instance.array[i];
