@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:56:21 by tglory            #+#    #+#             */
-/*   Updated: 2022/01/31 23:14:49 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 16:09:03 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,16 @@ class Form
 					return ("\e[0;31mForm::GradeTooLowException > Grade too low\e[0m");
 				}
 		};
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("\e[0;31mForm::GradeTooHighException > Grade too high\e[0m");
+				}
+		};
 	private:
-		std::string name;
+		const std::string name;
 		bool isSigne;
 		int requireLvlToSigned;
 		int requireLvlToExecute;

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 21:04:50 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/06 14:54:55 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 18:00:28 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Converter::Converter() : raw("42") {}
 
-Converter::Converter(const char *raw) : raw(raw) {}
+Converter::Converter(std::string raw) : raw(raw) {}
 
 Converter::Converter(Converter const &instance) : raw(instance.getRaw())
 {
@@ -29,7 +29,7 @@ Converter &Converter::operator=(Converter const &instance)
 
 Converter::~Converter() {}
 
-const char *Converter::getRaw() const
+const std::string Converter::getRaw() const
 {
 	return (this->raw);
 }
@@ -78,51 +78,137 @@ bool Converter::isDigit()
 {
 	int i = 0;
 
-	while (raw[i])
+	if (raw == "-inff" || raw == "+inff" || raw == "nanf" || raw == "-inf" || raw == "+inf" || raw == "nan")
+		return (true);
+	if (raw[i] == '-')
+		++i;
+	while (this->raw[i])
 	{
-		if (raw[i] < '0' || raw[i] > '9')
+		if (this->raw[i] == '.')
+		{
+			++i;
+			break;
+		}
+		else if (this->raw[i] < '0' || this->raw[i] > '9')
+			return (false);
+		++i;
+	}
+	while (this->raw[i])
+	{
+		if (this->raw[i] == 'f' && !this->raw[i + 1])
+			return (true);
+		else if (this->raw[i] < '0' || this->raw[i] > '9')
 			return (false);
 		++i;
 	}
 	return (true);
 }
 
-int Converter::toInt()
+bool Converter::isChar()
 {
-	long nb = static_cast<long>(std::strtold(raw, NULL));
-	if (nb > 2147483647 || nb < -2147483648)
+	int i = 0;
+
+	while (this->raw[i])
+	{
+		if (this->raw[i] < ' ' || this->raw[i] > '~')
+			return (false);
+		++i;
+	}
+	return (true);
+}
+
+int Converter::charToDigit()
+{
+	if (this->raw.length() > 1)
 		throw Converter::ConvertImpossible();
-	return (static_cast<int>(nb));
+	int i = static_cast<int>(this->raw[0]);
+	if (i < 0 || i > 128)
+		throw Converter::ConvertImpossible();
+	if (i < ' ' || i > '~')
+		throw Converter::NotDisplayable();
+	return (i);
 }
 
 char Converter::toChar()
 {
-	if (isDigit()) {
-		int i;
-		try
-		{
-			i = toInt();
-		} catch (std::exception &e) {
-			throw e;
-		}
+	if (this->isDigit())
+	{
+		int i = toInt();
 		if (i < ' ' || i > '~')
 			throw Converter::NotDisplayable();
+		double d = toDouble();
+		if (i != d)
+			throw Converter::ConvertImpossible();
 		return static_cast<char>(i);
 	}
-	if (std::strlen(raw) > 1)
-		throw Converter::ConvertImpossible();
-	char c = static_cast<char>(raw[0]);
-	if (c < ' ' || c > '~')
-		throw Converter::NotDisplayable();
-	return (c);
+	else if (this->isChar())
+	{
+		if (this->raw.length() > 1)
+			throw Converter::ConvertImpossible();
+		char c = static_cast<char>(this->raw[0]);
+		if (c < 0)
+			throw Converter::ConvertImpossible();
+		if (c < ' ' || c > '~')
+			throw Converter::NotDisplayable();
+		return (c);
+	}
+	throw Converter::ConvertImpossible();
 }
 
-float Converter::toFloat(void)
+int Converter::toInt()
 {
-	return static_cast<float>(std::strtof(this->raw, NULL));
+	if (this->isDigit())
+	{
+		double nb;
+		try
+		{
+			nb = static_cast<double>(std::strtod(this->raw.c_str(), NULL));
+		} catch (std::invalid_argument &e) {
+			throw Converter::ConvertImpossible();
+		} catch (std::out_of_range &e) {
+			throw Converter::ConvertImpossible();
+		}
+		if (nb > std::numeric_limits<int>::max() || nb < std::numeric_limits<int>::min() || raw == "nan" || raw == "nanf")
+			throw Converter::ConvertImpossible();
+		return (static_cast<int>(nb));
+	}
+	else if (this->isChar())
+			return (this->charToDigit());
+	throw Converter::ConvertImpossible();
 }
 
-double Converter::toDouble(void)
+float Converter::toFloat()
 {
-	return static_cast<double>(std::strtod(this->raw, NULL));
+	if (this->isDigit())
+	{
+		try
+		{
+			return static_cast<float>(std::strtof(this->raw.c_str(), NULL));
+		} catch (std::invalid_argument &e) {
+			throw Converter::ConvertImpossible();
+		} catch (std::out_of_range &e) {
+			throw Converter::ConvertImpossible();
+		}
+	}
+	else if (this->isChar())
+		return (this->charToDigit());
+	throw Converter::ConvertImpossible();
+}
+
+double Converter::toDouble()
+{
+	if (this->isDigit())
+	{
+		try
+		{
+			return static_cast<double>(std::strtod(this->raw.c_str(), NULL));
+		} catch (std::invalid_argument &e) {
+			throw Converter::ConvertImpossible();
+		} catch (std::out_of_range &e) {
+			throw Converter::ConvertImpossible();
+		}
+	}
+	else if (this->isChar())
+		return (this->charToDigit());
+	throw Converter::ConvertImpossible();
 }

@@ -17,16 +17,18 @@
 # include <cstdlib>
 # include <cstring>
 # include <iomanip>
+# include <limits>
+
 
 class Converter
 {
 	public:
 		Converter();
-		Converter(const char *raw);
+		Converter(std::string raw);
 		Converter(Converter const &instance);
 		Converter &operator=(Converter const &instance);
 		~Converter();
-		const char *getRaw() const; 
+		const std::string getRaw() const;
 		void print();
 		
 		class ConvertImpossible : public std::exception
@@ -46,12 +48,14 @@ class Converter
 				}
 		};
 	private:
-		const char *raw;
-		bool			isDigit(void);
-		int				toInt(void);
-		float			toFloat(void);
-		double			toDouble(void);
-		char			toChar(void);
+		const std::string raw;
+		int toInt();
+		float toFloat();
+		double toDouble();
+		char toChar();
+		bool isDigit();
+		bool isChar();
+		int charToDigit();
 };
 
 #endif

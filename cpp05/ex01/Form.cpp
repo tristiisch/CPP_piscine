@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:48:17 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/03 02:40:41 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 16:07:46 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,25 @@ Form::Form() : name("nameless"), isSigne(false), requireLvlToSigned(LOWEST_RANK)
 
 Form::Form(std::string name) : name(name), isSigne(false), requireLvlToSigned(LOWEST_RANK), requireLvlToExecute(LOWEST_RANK)  {}
 
-Form::Form(std::string name, int requireLvlToSigned, int requireLvlToExecute) : name(name), isSigne(false), requireLvlToSigned(requireLvlToSigned), requireLvlToExecute(requireLvlToExecute) {}
-
-Form::Form(Form const &instance)
+Form::Form(std::string name, int requireLvlToSigned, int requireLvlToExecute) : name(name), isSigne(false), requireLvlToSigned(requireLvlToSigned), requireLvlToExecute(requireLvlToExecute)
 {
+	if (this->requireLvlToSigned <= HIGHEST_RANK)
+		throw Form::GradeTooHighException();
+	if (this->requireLvlToSigned > LOWEST_RANK)
+		throw Form::GradeTooLowException();
+}
+
+Form::Form(Form const &instance) : name(name)
+{
+	this->isSigne = instance.isSigned();
+	this->requireLvlToSigned = instance.getRequireLvlToSigned();
+	this->requireLvlToExecute = instance.getRequireLvlToExecute();
 	*this = instance;
 }
 
 Form &Form::operator=(Form const &instance)
 {
-	this->name = instance.getName();
-	this->isSigne = instance.isSigned();
-	this->requireLvlToSigned = instance.getRequireLvlToSigned();
-	this->requireLvlToExecute = instance.getRequireLvlToExecute();
+	(void)instance;
 	return *this;
 }
 

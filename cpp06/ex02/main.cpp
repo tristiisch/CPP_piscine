@@ -6,11 +6,14 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:24:49 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/04 18:25:17 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 18:31:50 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 Base *generate(void)
 {
@@ -54,23 +57,19 @@ void identify(Base& ref)
 	{
 		(void) dynamic_cast<A&>(ref);
 		std::cout << "A identify with ref" << std::endl;
-	} catch (std::exception &e) {
-		// std::cout << e.what() << " Not A" << std::endl;
-	}
+	} catch (std::exception &e) {}
+
 	try 
 	{
 		(void) dynamic_cast<B&>(ref);
 		std::cout << "B identify with ref" << std::endl;
-	} catch (std::exception &e) {
-		// std::cout << e.what() << " Not B" << std::endl;
-	}
+	} catch (std::exception &e) {}
+
 	try 
 	{
 		(void) dynamic_cast<C&>(ref);
 		std::cout << "C identify with ref" << std::endl;
-	} catch (std::exception &e) {
-		// std::cout << e.what() << " Not C" << std::endl;
-	}
+	} catch (std::exception &e) {}
 }
 
 int main(void)

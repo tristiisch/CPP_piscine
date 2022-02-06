@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/03 21:08:37 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 15:42:11 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,20 @@ Bureaucrat::Bureaucrat() : name("nameless"), grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name) : name(name), grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade) {}
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
+{
+	if (this->grade <= HIGHEST_RANK)
+		throw Bureaucrat::GradeTooHighException();
+	if (this->grade > LOWEST_RANK)
+		throw Bureaucrat::GradeTooLowException();
+}
 
 Bureaucrat::Bureaucrat(Bureaucrat const &instance) : name(instance.getName()), grade(instance.getGrade())
 {
+	if (this->grade <= HIGHEST_RANK)
+		throw Bureaucrat::GradeTooHighException();
+	if (this->grade > LOWEST_RANK)
+		throw Bureaucrat::GradeTooLowException();
 	*this = instance;
 }
 
