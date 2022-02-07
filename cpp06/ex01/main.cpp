@@ -6,18 +6,18 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 14:57:40 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/06 18:30:29 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 20:52:32 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Data.hpp"
 
-uintptr_t serialize(Data* ptr)
+static uintptr_t serialize(Data* ptr)
 {
 	return (reinterpret_cast<uintptr_t>(ptr));
 }
 
-Data* deserialize(uintptr_t raw)
+static Data* deserialize(uintptr_t raw)
 {
 	return (reinterpret_cast<Data*>(raw));
 }

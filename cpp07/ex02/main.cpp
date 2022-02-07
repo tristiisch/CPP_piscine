@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:53:33 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/05 08:02:37 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/06 22:46:35 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ int main()
 		i++;
 	}
 
-	Array<int> intArrayEmpty;
-	std::cout << "intArrayEmpty Size:\t" << intArrayEmpty.size() << std::endl;
-
 	Array<std::string> stringArray(3);
 	i = 0;
 	while (i < stringArray.size())
@@ -42,6 +39,8 @@ int main()
 	while (i < stringArray.size())
 		std::cout << stringArray[i++] << std::endl;
 
+	Array<int> intArrayEmpty;
+	std::cout << "intArrayEmpty Size:\t" << intArrayEmpty.size() << std::endl;
 	try
 	{
 		std::cout << intArrayEmpty[42] << std::endl;

@@ -6,97 +6,138 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:52:34 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/05 08:53:28 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 00:40:59 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <iostream>
-#include <vector>
-#include <algorithm>
 
-Span::Span(void) : _total(0) {}
+Span::Span() : total(0) {}
 
-Span::Span(unsigned int N) : _total(N), _numbers(new std::vector<int>[N])
+Span::Span(unsigned int N) : total(N), numbers(new std::vector<int>[N]) {}
+
+Span &Span::operator=(Span const &instance)
 {
-	return ;
+	for (unsigned int i = 0; i < this->getTotal(); ++i)
+		this->numbers[i] = instance.numbers[i];
+	return (*this);
 }
 
-Span::~Span(void)
-{
-	delete[] _numbers;
-	return ;
-}
-
-Span::Span(Span const &instance) : _total(instance.getTotal()), _numbers(new std::vector<int>[this->_total])
+Span::Span(Span const &instance) : total(instance.getTotal()), numbers(new std::vector<int>[this->total])
 {
 	*this = instance;
 }
 
-Span &Span::operator=(Span const &rightHandSize)
+Span::~Span()
 {
-	for (unsigned int i = 0; i < this->getTotal(); i++)
-		this->_numbers[i] = rightHandSize._numbers[i];
-	return (*this);
+	delete[] numbers;
 }
 
-unsigned int	Span::getTotal(void)const
+unsigned int Span::getTotal()const
 {
-	return (this->_total);
+	return (this->total);
 }
 
-
-void	Span::_checkIsFull(void)
+void Span::checkIsFull()
 {
-	if (this->_numbers->size() == this->_total)
-		throw IsFullException();
+	if (this->numbers->size() == this->total)
+		throw SpanFullException();
 }
 
-void	Span::_chechIsEnoughElements(void)
+void Span::checkHasEnoughElements()
 {
-	if ((this->_total == 0) || (this->_numbers->size() <= 1))
-		throw noSpanException();
+	if ((this->total == 0) || (this->numbers->size() <= 1))
+		throw SpanNotEnough();
 }
 
-void	Span::addNumber(int number)
+void Span::addNumber(int number)
 {
-	try
-	{
-		this->_checkIsFull();
-		this->_numbers->push_back(number);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	this->checkIsFull();
+	this->numbers->push_back(number);
 }
 
-void	Span::addNumber(std::vector<int>::iterator firstNumber, std::vector<int>::iterator lastNumber)
+void Span::addNumber(std::vector<int>::iterator firstNumber, std::vector<int>::iterator lastNumber)
 {
-	try
-	{
+	try {
 		while (firstNumber != lastNumber)
 		{
-			this->_checkIsFull();
-			this->_numbers->push_back(*firstNumber);
-			firstNumber++;
+			this->checkIsFull();
+			this->numbers->push_back(*firstNumber++);
 		}
-		this->_numbers->push_back(*lastNumber);
+	} catch (std::exception &e) {
+		throw e;
 	}
-	catch(const std::exception& e)
+}
+
+unsigned int Span::shortestSpan()
+{
+	checkHasEnoughElements();
+
+	long span = -1;
+	unsigned int temp;
+	for (unsigned int i = 0; i < this->numbers->size(); ++i)
 	{
-		std::cerr << e.what() << '\n';
+		for (unsigned int j = 0; j < i; ++j)
+		{
+			if ((*this->numbers)[i] > (*this->numbers)[j])
+			{
+				if (span > (temp = (*this->numbers)[i] - (*this->numbers)[j]) || span == -1)
+					span = temp;
+			}
+			else if ((*this->numbers)[i] < (*this->numbers)[j])
+			{
+				if (span > (temp = (*this->numbers)[j] - (*this->numbers)[i]) || span == -1)
+					span = temp;
+			}
+			else if (span == -1 || span > 0)
+				span = 0;
+		}
 	}
+	return (static_cast<unsigned int>(span));
 }
 
-int		Span::shortestSpan(void)
+unsigned int Span::longestSpan()
 {
-	_chechIsEnoughElements();
-	return (*min_element(this->_numbers->begin(), this->_numbers->end()));
+	checkHasEnoughElements();
+
+	long span = -1;
+	unsigned int temp;
+	for (unsigned int i = 0; i < this->numbers->size(); ++i)
+	{
+		for (unsigned int j = 0; j < i; ++j)
+		{
+			if ((*this->numbers)[i] > (*this->numbers)[j])
+			{
+				if (span < (temp = (*this->numbers)[i] - (*this->numbers)[j]) || span == -1)
+					span = temp;
+			}
+			else if ((*this->numbers)[i] < (*this->numbers)[j])
+			{
+				if (span < (temp = (*this->numbers)[j] - (*this->numbers)[i]) || span == -1)
+					span = temp;
+			}
+			else if (span == -1)
+				span = 0;
+		}
+	}
+	return (static_cast<unsigned int>(span));
 }
 
-int		Span::longestSpan(void)
+std::string Span::print() const
 {
-	_chechIsEnoughElements();
-	return (*max_element(this->_numbers->begin(), this->_numbers->end()));
+	std::stringstream ss;
+
+	for (unsigned int i = 0; i < this->numbers->size(); ++i)
+	{
+		ss << (*this->numbers)[i];
+		if (i != this->numbers->size() - 1)
+			ss << ", ";
+	}
+	return ss.str();
+}
+
+std::ostream &operator<<(std::ostream &outputFile, Span const &instance)
+{
+	outputFile << instance.print();
+	return outputFile;
 }

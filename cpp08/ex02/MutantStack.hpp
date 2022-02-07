@@ -1,31 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/07 00:47:57 by tglory            #+#    #+#             */
+/*   Updated: 2022/02/07 01:02:02 by tglory           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
-#define MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
-#include <iostream>
-#include <stack>
-#include <deque>
+# include <iostream>
+# include <stack>
 
-template <typename T, typename Container=std::deque<T> >
-class MutantStack : public std::stack<T, Container>
+template <typename T>
+class MutantStack : public std::stack<T>
 {
-	private:
-
 	public:
-		MutantStack(void) {};
-		~MutantStack(void) {};
-		MutantStack(MutantStack const *instance) : std::stack<T, Container>(instance){}
-		MutantStack &operator=(MutantStack const &right_hand_side) {
-			std::stack<T, Container>::operator=(right_hand_side);
+		typedef typename std::stack<T>::container_type::iterator iterator;
+        typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+
+		MutantStack() {}
+		MutantStack(MutantStack const *instance) : std::stack<T>(instance) {}
+		MutantStack &operator=(MutantStack const &instance)
+		{
+			(void)instance;
 			return *this;
 		}
+		~MutantStack() {}
 
-		typedef typename Container::iterator iterator;
-		typedef typename Container::reverse_iterator reverse_iterator;
-		iterator begin() {return this->c.begin();}
-		iterator end() {return this->c.end();}
-		reverse_iterator rbegin() {return this->c.rbegin();}
-		reverse_iterator rend() {return this->c.rend();}
+		iterator begin() {
+			return this->c.begin();
+		}
+		iterator end() {
+			return this->c.end();
+		}
+		reverse_iterator rbegin() {
+			return this->c.rbegin();
+		}
+		reverse_iterator rend() {
+			return this->c.rend();
+		}
 };
 
 #endif

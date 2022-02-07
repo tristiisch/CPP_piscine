@@ -1,49 +1,65 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/06 20:46:40 by tglory            #+#    #+#             */
+/*   Updated: 2022/02/07 00:45:49 by tglory           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef SPAN_HPP
-#define SPAN_HPP
+# define SPAN_HPP
 
-#include <vector>
-#include <iostream>
+# include <vector>
+# include <iostream>
+# include <sstream>
+# include <algorithm>
+# include <limits>
 
 class Span
 {
-private:
-	unsigned int const	_total;
-	std::vector<int>	*_numbers;
-	void				_checkIsFull(void);
-	void				_chechIsEnoughElements(void);
+	public:
+		Span(unsigned int N);
+		Span(Span const &instance);
+		Span &operator=(Span const &instance);
+		~Span();
 
-	Span(void);
+		void addNumber(int number);
+		void addNumber(std::vector<int>::iterator firstNumber, std::vector<int>::iterator lastNumber);
+		unsigned int shortestSpan();
+		unsigned int longestSpan();
+		unsigned int getTotal() const;
+		std::string print() const;
+	private:
+		Span();
 
-	class IsFullException : public std::exception
-	{
-		public:
-			virtual const char* what() const throw()
-			{
-				return ("\e[0;31mSpan is full\e[0m");
-			}
-	};
+		unsigned int const total;
+		std::vector<int> *numbers;
+		void checkIsFull();
+		void checkHasEnoughElements();
+		class SpanFullException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("\e[0;31mSpanFullException: Span is full\e[0m");
+				}
+		};
 
-	class noSpanException : public std::exception
-	{
-		public:
-			virtual const char* what() const throw()
-			{
-				return ("\e[0;31mthere is no span to find\e[0m");
-			}
-	};
-
-public:
-	Span(unsigned int N);
-	Span(Span const &instance);
-	~Span(void);
-
-	Span			&operator=(Span const &rightHandSize);
-	void			addNumber(int number);
-	void			addNumber(std::vector<int>::iterator firstNumber, std::vector<int>::iterator lastNumber);
-	int				shortestSpan(void);
-	int				longestSpan(void);
-	unsigned int	getTotal(void)const;
+		class SpanNotEnough : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("\e[0;31mSpanNotEnough: You need to have minimum 2 ints\e[0m");
+				}
+		};
 };
+
+std::ostream &operator<<(std::ostream &outputFile, Span const &instance);
 
 #endif
