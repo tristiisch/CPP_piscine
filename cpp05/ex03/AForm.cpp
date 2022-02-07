@@ -15,21 +15,27 @@
 AForm::AForm() : name("nameless"), isSigne(false), requireLvlToSigned(LOWEST_RANK), requireLvlToExecute(LOWEST_RANK)  {}
 
 AForm::AForm(std::string name, std::string target, int requireLvlToSigned, int requireLvlToExecute) : name(name),
-	target(target), isSigne(false), requireLvlToSigned(requireLvlToSigned), requireLvlToExecute(requireLvlToExecute) {}
-
-AForm::AForm(AForm const &instance)
+	target(target), isSigne(false), requireLvlToSigned(requireLvlToSigned), requireLvlToExecute(requireLvlToExecute)
 {
-	this->target = instance.getName();
+	if (this->requireLvlToSigned < HIGHEST_RANK || this->requireLvlToExecute < HIGHEST_RANK)
+		throw AForm::GradeTooHighException();
+	if (this->requireLvlToSigned > LOWEST_RANK || this->requireLvlToExecute > LOWEST_RANK)
+		throw AForm::GradeTooLowException();
+}
+
+AForm::AForm(AForm const &instance) : name(instance.getName()), target(instance.getTarget()), requireLvlToSigned(instance.getRequireLvlToSigned()), requireLvlToExecute(instance.getRequireLvlToExecute())
+{
+	if (this->requireLvlToSigned < HIGHEST_RANK || this->requireLvlToExecute < HIGHEST_RANK)
+		throw AForm::GradeTooHighException();
+	if (this->requireLvlToSigned > LOWEST_RANK || this->requireLvlToExecute > LOWEST_RANK)
+		throw AForm::GradeTooLowException();
+	this->isSigne = instance.isSigned();
 	*this = instance;
 }
 
 AForm &AForm::operator=(AForm const &instance)
 {
-	this->name = instance.getName();
-	this->target = instance.getName();
-	this->isSigne = instance.isSigned();
-	this->requireLvlToSigned = instance.getRequireLvlToSigned();
-	this->requireLvlToExecute = instance.getRequireLvlToExecute();
+	(void)instance;
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:51:23 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/06 16:08:40 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 14:23:26 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,20 @@ Bureaucrat::Bureaucrat() : name("nameless"), grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name) : name(name), grade(150) {}
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade) {}
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
+{
+	if (this->grade < HIGHEST_RANK)
+		throw Bureaucrat::GradeTooHighException();
+	if (this->grade > LOWEST_RANK)
+		throw Bureaucrat::GradeTooLowException();
+}
 
 Bureaucrat::Bureaucrat(Bureaucrat const &instance) : name(instance.getName()), grade(instance.getGrade())
 {
+	if (this->grade < HIGHEST_RANK)
+		throw Bureaucrat::GradeTooHighException();
+	if (this->grade > LOWEST_RANK)
+		throw Bureaucrat::GradeTooLowException();
 	*this = instance;
 }
 
@@ -39,6 +49,22 @@ std::string Bureaucrat::getName() const
 int Bureaucrat::getGrade() const
 {
 	return this->grade; 
+}
+
+void Bureaucrat::upGrade()
+{
+	if (this->grade == HIGHEST_RANK)
+		throw Bureaucrat::GradeTooHighException();
+	--this->grade;
+	std::cout << this->name << " was promote lvl " << this->getGrade() << std::endl;
+}
+
+void Bureaucrat::downGrade()
+{
+	if (this->grade == LOWEST_RANK)
+		throw Bureaucrat::GradeTooLowException();
+	++this->grade;
+	std::cout << this->name << " was demote lvl " << this->getGrade() << std::endl;
 }
 
 void Bureaucrat::signForm(Form &form)

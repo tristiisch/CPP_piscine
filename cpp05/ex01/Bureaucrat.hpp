@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:50:32 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/06 16:10:09 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 14:18:10 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class Bureaucrat
 		std::string getName() const;
 		int getGrade() const;
 		void signForm(Form &form);
+		void upGrade();
+		void downGrade();
 
 		class GradeTooHighException : public std::exception
 		{

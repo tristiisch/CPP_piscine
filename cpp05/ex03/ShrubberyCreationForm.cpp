@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 01:26:02 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/06 15:54:53 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 15:46:48 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	this->canExecute(executor);
 
-	std::ofstream	outfile;
-	std::string		fileName(this->getTarget() + "_shrubbery");
-	std::string		content;
+	std::ofstream outfile;
+	std::string fileName(this->getTarget() + "_shrubbery");
+	std::string content;
 
 	outfile.open(fileName.c_str());
 	if (outfile.fail())

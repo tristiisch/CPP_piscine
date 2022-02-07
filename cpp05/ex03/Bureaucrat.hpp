@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 15:50:32 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/02 18:05:01 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 14:18:59 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,29 @@ class Bureaucrat
 		int getGrade() const;
 		void signForm(AForm &form);
 		void execute(AForm const &form);
+		void upGrade();
+		void downGrade();
 
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("\e[0;31mBureaucrat::GradeTooHighException > Grade too high\e[0m");
+				}
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return ("\e[0;31mBureaucrat::GradeTooLowException > Grade too low\e[0m");
+				}
+		};
 	private:
 		const std::string name;
-		const int grade;
+		int grade;
 };
 
 std::ostream &operator<<(std::ostream &outputFile, Bureaucrat const &instance);

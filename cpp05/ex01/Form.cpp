@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:48:17 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/06 16:07:46 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 15:43:51 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,19 @@ Form::Form(std::string name) : name(name), isSigne(false), requireLvlToSigned(LO
 
 Form::Form(std::string name, int requireLvlToSigned, int requireLvlToExecute) : name(name), isSigne(false), requireLvlToSigned(requireLvlToSigned), requireLvlToExecute(requireLvlToExecute)
 {
-	if (this->requireLvlToSigned <= HIGHEST_RANK)
+	if (this->requireLvlToSigned < HIGHEST_RANK || this->requireLvlToExecute < HIGHEST_RANK)
 		throw Form::GradeTooHighException();
-	if (this->requireLvlToSigned > LOWEST_RANK)
+	if (this->requireLvlToSigned > LOWEST_RANK || this->requireLvlToExecute > LOWEST_RANK)
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(Form const &instance) : name(name)
+Form::Form(Form const &instance) : name(instance.getName()), requireLvlToSigned(instance.getRequireLvlToSigned()), requireLvlToExecute(instance.getRequireLvlToExecute())
 {
+	if (this->requireLvlToSigned < HIGHEST_RANK || this->requireLvlToExecute < HIGHEST_RANK)
+		throw Form::GradeTooHighException();
+	if (this->requireLvlToSigned > LOWEST_RANK || this->requireLvlToExecute > LOWEST_RANK)
+		throw Form::GradeTooLowException();
 	this->isSigne = instance.isSigned();
-	this->requireLvlToSigned = instance.getRequireLvlToSigned();
-	this->requireLvlToExecute = instance.getRequireLvlToExecute();
 	*this = instance;
 }
 

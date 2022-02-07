@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 19:56:21 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/06 16:09:03 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 14:24:19 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ class Form
 	private:
 		const std::string name;
 		bool isSigne;
-		int requireLvlToSigned;
-		int requireLvlToExecute;
+		const int requireLvlToSigned;
+		const int requireLvlToExecute;
 
 };
 
