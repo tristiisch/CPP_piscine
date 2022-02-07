@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 18:45:13 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/06 15:07:14 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 10:31:04 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int main()
 {
 	int i1 = 2;
 	int i2 = 3;
-	std::cout << "int 1 = " << i1 << std::endl;
-	std::cout << "int 2 = " << i2 << std::endl;
+	std::cout << "int1 = " << i1 << std::endl;
+	std::cout << "int2 = " << i2 << std::endl;
 	::swap(i1, i2);
-	std::cout << "int 1 = " << i1 << std::endl;
-	std::cout << "int 2 = " << i2 << std::endl;
+	std::cout << "int1 = " << i1 << std::endl;
+	std::cout << "int2 = " << i2 << std::endl;
 	std::cout << "min = " << ::min(i1, i2) << std::endl;
 	std::cout << "max = " << ::max(i1, i2) << std::endl;
 	std::cout << std::endl;

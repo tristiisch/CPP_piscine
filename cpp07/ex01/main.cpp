@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:31:44 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/05 08:01:17 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 11:37:30 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(void)
 	iter(doubles, size, display);
 	std::cout << std::endl << std::endl;
 
-	bool bools[] = { false, true };
+	bool bools[] = {false, true};
 	size = sizeof(bools) / sizeof(*bools);
 	iter(bools, size, display);
 	std::cout << std::endl << std::endl;

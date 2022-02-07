@@ -16,10 +16,12 @@ class Array
 			if (size < 0)
 				throw OutOfRangeException();
 		}
-		Array(Array const &instance)
+		Array(Array const &instance) : _size(instance._size)
 		{
 			unsigned int i = 0;
-			this->_size = instance._size;
+
+			if (this->_size == 0)
+				return;
 			this->array = new T[_size];
 
 			while (i < _size)
@@ -30,12 +32,14 @@ class Array
 		}
 		Array &operator=(Array const &instance)
 		{
-			if (this->_size != 0 && this->_size != instance._size)
-				delete [] array;
-
-			this->_size = instance._size;
-			this->array = new T[_size];
 			unsigned int i = 0;
+
+			if (this->_size != 0)
+				delete[] this->array;
+			this->_size = instance._size;
+			if (this->_size == 0)
+				return (*this);
+			this->array = new T[_size];
 
 			while (i < this->_size)
 			{
@@ -46,7 +50,8 @@ class Array
 		}
 		~Array()
 		{
-			delete [] array;
+			if (this->_size != 0)
+				delete[] this->array;
 		}
 		T &operator[](unsigned int i)
 		{
