@@ -4,6 +4,7 @@
 
 # include <iostream>
 # include <exception>
+# include <cstdlib>
 
 template <typename T>
 class Array
