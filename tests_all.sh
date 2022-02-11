@@ -23,14 +23,33 @@ do
 			cd $TEST_EX
 			echo "---------------------------------------------------"
 			echo "Test ${TEST%%/}/${TEST_EX%%/}"
-			make >> /dev/null
+			make re >> /dev/null
+			if [ $? != 0 ]; then
+				echo -e "\033[0;31mKO : make re error\033[0m"
+				CORRECT=false
+			fi
 			# ./${TEST_EX%%/}
-			if valgrind ./${TEST_EX%%/} 1>/dev/null 2>/dev/null | grep -q "definitely lost"  >> /dev/null ; then
-				echo -e "\e[0;31mKO : leaks\e[0m"
+			EXEC=$(ls -t * | head -1)
+			if [[ $OSTYPE == 'darwin'* ]]; then
+				if leaks -atExit --q -- ./$EXEC 1>/dev/null 2>/dev/null ; then
+					echo -e "\033[0;32mOK\033[0m"
+				else
+					echo -e "\033[0;31mKO : leaks\033[0m"
+					CORRECT=false
+				fi
 			else
-				echo -e "\e[0;32mOK\e[0m"
+				if valgrind ./$EXEC 1>/dev/null 2>/dev/null | grep -q "definitely lost"  >> /dev/null ; then
+					echo -e "\033[0;31mKO : leaks\033[0m"
+					CORRECT=false
+				else
+					echo -e "\033[0;32mOK\033[0m"
+				fi
 			fi
 			make fclean >> /dev/null
+			if [ $? != 0 ]; then
+				echo -e "\033[0;31mKO : make fclean error\033[0m"
+				CORRECT=false
+			fi
 			cd - >> /dev/null
 		done
 		cd ..
