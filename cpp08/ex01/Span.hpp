@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 20:46:40 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/07 00:45:49 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/11 18:00:42 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Span
 
 		void addNumber(int number);
 		void addNumber(std::vector<int>::iterator firstNumber, std::vector<int>::iterator lastNumber);
-		unsigned int shortestSpan();
-		unsigned int longestSpan();
+		unsigned int shortestSpan() const;
+		unsigned int longestSpan() const;
 		unsigned int getTotal() const;
 		std::string print() const;
 	private:
@@ -39,8 +39,8 @@ class Span
 
 		unsigned int const total;
 		std::vector<int> *numbers;
-		void checkIsFull();
-		void checkHasEnoughElements();
+		void checkIsFull() const;
+		void checkHasEnoughElements() const;
 		class SpanFullException : public std::exception
 		{
 			public:

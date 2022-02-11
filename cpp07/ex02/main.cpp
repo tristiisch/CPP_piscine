@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 07:53:33 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/07 11:43:30 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/11 17:55:30 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int main()
 	}
 	std::cout << std::endl;
 
-	Array<int> intArrayEmptyCopy2(intArrayEmpty);
+	const Array<int> intArrayEmptyCopy2(intArrayEmpty);
 	std::cout << "intArrayEmptyCopy2 Size: " << intArrayEmptyCopy2.size() << std::endl;
 	try
 	{

@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 00:47:57 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/07 01:02:02 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/11 17:59:24 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,20 @@ class MutantStack : public std::stack<T>
 		}
 		~MutantStack() {}
 
-		iterator begin() {
+		iterator begin()
+		{
 			return this->c.begin();
 		}
-		iterator end() {
+		iterator end()
+		{
 			return this->c.end();
 		}
-		reverse_iterator rbegin() {
+		reverse_iterator rbegin()
+		{
 			return this->c.rbegin();
 		}
-		reverse_iterator rend() {
+		reverse_iterator rend()
+		{
 			return this->c.rend();
 		}
 };

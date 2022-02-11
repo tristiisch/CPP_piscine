@@ -6,7 +6,7 @@
 /*   By: tglory <tglory@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 08:52:34 by tglory            #+#    #+#             */
-/*   Updated: 2022/02/07 00:40:59 by tglory           ###   ########lyon.fr   */
+/*   Updated: 2022/02/11 18:00:52 by tglory           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ unsigned int Span::getTotal()const
 	return (this->total);
 }
 
-void Span::checkIsFull()
+void Span::checkIsFull() const
 {
 	if (this->numbers->size() == this->total)
 		throw SpanFullException();
 }
 
-void Span::checkHasEnoughElements()
+void Span::checkHasEnoughElements() const
 {
 	if ((this->total == 0) || (this->numbers->size() <= 1))
 		throw SpanNotEnough();
@@ -69,7 +69,7 @@ void Span::addNumber(std::vector<int>::iterator firstNumber, std::vector<int>::i
 	}
 }
 
-unsigned int Span::shortestSpan()
+unsigned int Span::shortestSpan() const
 {
 	checkHasEnoughElements();
 
@@ -96,7 +96,7 @@ unsigned int Span::shortestSpan()
 	return (static_cast<unsigned int>(span));
 }
 
-unsigned int Span::longestSpan()
+unsigned int Span::longestSpan() const
 {
 	checkHasEnoughElements();
 

@@ -59,7 +59,13 @@ class Array
 				throw OutOfRangeException();
 			return (this->array[i]);
 		}
-		int size()
+		const T &operator[](unsigned int i) const
+		{
+			if (i < 0 || i >= _size)
+				throw OutOfRangeException();
+			return (this->array[i]);
+		}
+		int size() const
 		{
 			return (_size);
 		}
