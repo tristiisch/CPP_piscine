@@ -10,7 +10,7 @@ CORRECT_RETURN=true
 tail -f compile &make > compile
 if [ $? != 0 ]; then
 	cat compile
-	echo -e "\e[0;31mKO : Does not compile\e[0m"
+	echo -e "\033[0;31mKO : Does not compile\033[0m"
 	exit 1
 fi
 
@@ -51,12 +51,12 @@ fi
 #################################### RESULTS ####################################
 rm -f test1_correct test1_user
 if [ $CORRECT_RETURN != "true" ]; then
-	echo -e "\e[0;31mKO : return code\e[0m"
+	echo -e "\033[0;31mKO : return code\033[0m"
 fi
 if [ $CORRECT != "true" ]; then
-	echo -e "\e[0;31mKO : error on tests\e[0m"
+	echo -e "\033[0;31mKO : error on tests\033[0m"
 else
-	echo -e "\e[0;32mOK\e[0m"
+	echo -e "\033[0;32mOK\033[0m"
 fi
 
 ################################## RETURN CODE ##################################
